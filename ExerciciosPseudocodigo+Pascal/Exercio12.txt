@@ -1,0 +1,45 @@
+Faça um algoritmo para ler o salário de um funcionário e aumentá-Io 
+em 15%. Após o aumento, desconte 8% de impostos. 
+Imprima o salário inicial, o salário com o aumento e o salário final.
+ slario inicial 1500,00
+ aunmento de 15% = 1500*0.15
+ 
+ desconto 8% = salário* 0.92
+ 
+ desconto 8% = salário - ((salário*8)/100)
+ 
+ regra de tres:
+ 1500 = 100
+ X    = 8
+
+------------------------------------------------------------------
+programa Exercicio12;
+
+	var salarioInicial : real;
+	var salarioComAumento : real;     
+	var salarioComDesconto : real;
+
+INICIO
+
+	Escreve('Informe o salário inicial:');
+	leia(salarioInicial);
+	
+	//Forma A:
+	salarioComAumento <- salarioInicial +((salarioInicial * 15 )/100);
+	
+	//Forma A:
+	salarioComDesconto <- salarioInicial -((salarioInicial * 8 )/100);
+	
+	
+	
+	//Forma B:
+	salarioComAumento <- salarioInicial* 1.15;
+
+
+	//Forma B:
+    salarioComDesconto <- salarioInicial* 0.98;
+
+
+	Escreve('O salario inicial é de ', salarioComDesconto);
+	
+FIM

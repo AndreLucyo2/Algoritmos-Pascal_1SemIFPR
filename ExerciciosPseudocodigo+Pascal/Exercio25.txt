@@ -1,0 +1,32 @@
+Calcule o volume de uma caixa d'água cilíndrica.
+
+	Formula do volume:
+		r = raio do cilindro
+		h = altura do cilindro
+		V = pi * r² * h
+	
+------------------------------------------------------------------
+programa Exercicio25;
+
+	var alturaCX : real;
+	var raioCX : real;
+	var volume : real;
+	cons pi :real
+
+	
+INICIO
+
+	Escreve('Informe o raio da caixa d'agua:');
+	leia(raioCX);
+	
+	Escreve('Informe a altura da caixa d'agua:');
+	leia(alturaCX);
+	
+	volume <- pi * sqr(raioCX) * altura;
+	
+
+	Escreve('O volume da caixa d'agua cilíndrica :', volume);
+	
+	
+FIM
+	

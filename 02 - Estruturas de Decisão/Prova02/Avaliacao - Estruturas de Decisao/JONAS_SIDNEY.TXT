@@ -1,0 +1,212 @@
+Exercicio 01
+
+program Av02Ex01;
+{$CODEPAGE UTF8}
+
+Const
+   Kwh30 = 0.65;
+  Kwh100 = 0.40;
+  Kwh220 = 0.10;
+
+Var
+  qntConsumo, vlKwh, vlBruto,txDesconto, vlDesconto, liquido : real;
+
+begin
+  writeln('------- FATURA ENERGIA ELETRICA -------');
+  writeln();
+  write('Informe o total de Kwh consumido: ');
+  readln(qntConsumo);
+  write('Informe quanto custa cada Kwh: ');
+  readln(vlKwh);
+
+  vlBruto := qntConsumo*vlKwh;
+  vlDesconto:=0;
+
+  if (qntConsumo <= 30) then
+     begin
+       txDesconto:=Kwh30*100;
+       vlDesconto := vlBruto*Kwh30;
+       liquido := vlBruto-vlDesconto;
+     end
+  else if (qntConsumo <= 100) then
+          begin
+            txDesconto:=Kwh100*100;
+            vlDesconto := vlBruto*Kwh100;
+            liquido := vlBruto-vlDesconto;
+          end
+  else if (qntConsumo <= 220) then
+          begin
+            txDesconto:=Kwh220*100;
+            vlDesconto := vlBruto*Kwh220;
+            liquido := vlBruto-vlDesconto;
+          end;
+
+  writeln();
+  writeln('------- RESUMO DA FATURA -------');
+  writeln();
+  writeln('Valor da Fatura: R$ ',vlBruto:2:2);
+  writeln('Desconto aplicável: ',txDesconto:2:0,' %');
+  writeln('Valor do desconto: R$ ',vlDesconto:2:2);
+  writeln('Valor Líquido: R$ ',liquido:2:2);
+
+  readln();
+end.  
+
+--------------------------------------------------------------------------------------------------------
+
+exercicio 02
+
+program Av02Ex02;
+{$CODEPAGE UTF8}
+uses SysUtils;
+
+Const
+  DESC11 = 0.20;
+  DESC12 = 0.15;
+  DESC13 = 0.10;
+  DESC14 = 0.05;
+  DESC21 = 0.15;
+  DESC22 = 0.10;
+  DESC23 = 0.05;
+  DESC24 = 0;
+
+Var
+  tipoCliente, formaPag, codDescI : integer;
+  vlCompra, vlDesconto : real;
+  codDesc : string;
+
+begin
+  writeln('-------------- SYS FRENTE LOJA --------------');
+  writeln();
+  writeln('O cliente tem cadastro na Loja? ');
+  writeln('1 -> Sim ');
+  writeln('2 -> Nao ');
+  readln(tipoCliente);
+  writeln();
+  writeln('Qual é  a forma de Pagamento? ');
+  writeln('1 -> À vista em dinheiro ou Cheque ');
+  writeln('2 -> À vista no cartão de crédito ');
+  writeln('3 -> Parcelado em duas vezes ');
+  writeln('4 -> Parcelado em 3 vezes ');
+
+  readln(formaPag);
+  writeln();
+  writeln('Qual é o Valor da Compra? ');
+  readln(vlCompra);
+
+  codDesc:=concat(IntToStr(tipoCliente),IntToStr(formaPag));
+  codDescI := StrToInt(codDesc);
+
+  case codDescI of
+       11: vlDesconto:=vlCompra*DESC11;
+       12: vlDesconto:=vlCompra*DESC12;
+       13: vlDesconto:=vlCompra*DESC13;
+       14: vlDesconto:=vlCompra*DESC14;
+       21: vlDesconto:=vlCompra*DESC21;
+       22: vlDesconto:=vlCompra*DESC22;
+       23: vlDesconto:=vlCompra*DESC23;
+       24: vlDesconto:=0;
+  end;
+ writeln();
+ writeln('-------------- RESUMO DA COMPRA --------------');
+
+  writeln('O valor da compra foi de: R$ ',vlCompra:2:2);
+  writeln('O desconto concedido foi de: R$ ',vlDesconto:2:2);
+  writeln('Total a pagar: R$ ',vlCompra-vlDesconto:2:2);
+
+  readln();
+end.
+
+--------------------------------------------------------------------------------------------------------
+
+exercicio 03
+
+program Av02Ex03;
+{$CODEPAGE UTF8}
+uses SysUtils;
+
+
+Var
+  nmAluno : string;
+  n1, n2, n3, n4, media, frequencia : real;
+  nAulas, faltas : integer;
+
+begin
+  writeln('------- Boletim -------');
+  writeln();
+  write('Informe o nome do aluno: ');
+  readln(nmAluno);
+  write('Digite a primeia nota: ');
+  readln(n1);
+  write('Digite a segunda nota: ');
+  readln(n2);
+  write('Digite a terceira nota: ');
+  readln(n3);
+  write('Digite a quarta nota: ');
+  readln(n4);
+  write('Informe o número de aulas ministradas: ');
+  readln(nAulas);
+  write('Informe a quantidade de faltas: ');
+  readln(faltas);
+
+  media := (n1+n2+n3+n4)/4;
+  frequencia:=(1-(faltas/nAulas))*100;
+
+  writeln();
+  writeln('------------------------------------------');
+  writeln('Media ',media:2:2);
+  writeln('Frequencia ',frequencia:2:0,' %');
+  writeln();
+  writeln('------------------------------------------');
+  writeln('Situação do aluno: ');
+
+  if (frequencia < 75) then
+     writeln('Reprovado por Frequência')
+  else if (media <= 4 ) then
+          writeln('Reprovado por Média')
+  else if (media > 4 ) and (media < 6) then
+          writeln('Em Recuperação')
+       else
+          writeln('Aprovado');
+  writeln('------------------------------------------');
+  readln();
+end.
+
+--------------------------------------------------------------------------------------------------------
+
+exercicio 04
+
+program Av02Ex04;
+{$CODEPAGE UTF8}
+uses SysUtils;
+
+
+Var
+  idAno, auxAno : integer;
+  era, auxEra, periodo : string;
+
+Begin
+ writeln('------------ TIME LINE ------------');
+ writeln();
+ write('Informe o Ano: ');
+ readln(idAno);
+ write('Informe a Era (AC ou DC): ');
+ readln(era);
+
+ auxEra:=UpperCase(era);
+
+ if (auxEra = 'AC') then
+    auxAno:=idAno*(-1)
+ else
+    auxAno:=idAno;
+
+ if (auxAno < 4000) then
+    writeln('Periodo Pré Histórico | Idade Antiga | AC')
+ else if (auxAno < 476) then
+    writeln('Periodo Histórico | Idade Antiga | DC');
+
+ //---------  CONTINUA..  RSRS
+
+ readln();
+End.          
+                         

@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>JSkenpo</title>
+<script type="text/javascript">
+function jskenpo(jogador){
+	/*************************************************************************/
+	// Jokenpo - Jokenpo em JavaScript
+	// Angelito M. Goulart <angelito@bsd.com.br>
+	// 25/02/2011 - v1.0
+	// 1 -> Pedra
+	// 2 -> Papel
+	// 3 -> Tesoura
+	/************************************************************************/
+	var nr = 0
+	do {
+		nr = Math.random() * 3;
+		cpu = Math.round(nr);
+	} while (cpu == 0)
+	if (jogador == cpu){
+		resultado = '<img src="' + jogador + '.jpg" /> <span class="negrito">x</span> <img src="' + cpu + '.jpg" />';
+		resultado = resultado + '<h3><p class="resultado">Empate!</p></h3>';
+	} else {
+		if ((jogador == 1 && cpu == 3) || (jogador == 2 && cpu == 1) || (jogador == 3 && cpu == 2)){
+			resultado = '<img src="' + jogador + '.jpg" /> <span class="negrito">x</span> <img src="' + cpu + '.jpg" />';
+			resultado = resultado + '<h3><p class="resultado"><span class="nome">Jogador</span>ganhou!</p></h3>';
+		}
+		else{
+			resultado = '<img src="' + jogador + '.jpg" /> <span class="negrito">x</span> <img src="' + cpu + '.jpg" />';
+			resultado = resultado + '<h3><p class="resultado"><span class="nome">CPU</span>ganhou!</p></h3>';
+		}
+	}
+	document.getElementById("resultado").innerHTML = resultado;
+}
+</script>
+<style type="text/css">
+*{ font-family: verdana; padding: 10px; text-align: center; background-color: #F8F8FF; }
+.negrito { font-weight: bold; font-size: 72px; }
+.nome { color: #FF0000; font-weight: bold; }
+a { font-weight: bold; color: #000000; text-decoration: none;}
+a:visited { color: #000000; }
+a:hover { border: 2px solid; }
+
+#rodape { font-size: 10px; }
+#rodape a:hover{ text-decoration: underline; border:0; }
+</style>
+<meta name="author" content="Angelito M. Goulart" />
+<meta name="description" content="JSkenpo - Jokenpo em JavaScript" />
+<meta name="keywords" content="jokenpo, javascript, jokenpo em javascript, jskenpo, pedra papel tesoura javascript" />
+</head>
+<body>
+<h1>JSkenpo</h1>
+<h4>Fa&ccedil;a sua escolha!</h4>
+<p>
+<a href="#" onclick="javascript: jskenpo(1);">Pedra</a>
+<a href="#" onclick="javascript: jskenpo(2);">Papel</a>
+<a href="#" onclick="javascript: jskenpo(3);">Tesoura</a>
+</p>
+<div id="resultado">
+</div>
+<div id="rodape">
+Powered by <a href="http://angelitomg.com">Angelito</a>
+</div>
+</body>
+</html>

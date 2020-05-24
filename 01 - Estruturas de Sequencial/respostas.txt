@@ -1,0 +1,36 @@
+resposta revisão:
+01:
+resp c
+
+02:
+resp b
+
+03:
+resp b
+
+04:
+resp C
+
+05:
+resp a 
+
+06:
+resp d
+
+07:
+resp b
+
+08:
+resp b
+
+09:
+resp:a
+
+10:
+resp: b
+
+11:
+resp: e
+
+12:
+resp: 

@@ -1,0 +1,174 @@
+Atividade 01
+=================================================================================================================================================================
+Program eletricaAneel;
+uses crt, sysUtils;
+Const
+    Faixa1  = 0.65;
+    Faixa2  = 0.40;
+    Faixa3  = 0.10;
+Var
+    vlConsumo   : Real;
+    vlPago      : Real;
+    aux         : Real;
+    vlKwh       : Real;
+    vlDesc      : Real;
+    descPago    : string;
+begin
+    writeln('Informe o valor de consumo: ');
+    readln(vlConsumo);
+    writeln('Informe o preco de cada kWh: ');
+    readln(vlKwh);
+if (vlConsumo <= 30) then
+    begin
+        aux         := vlKwh * vlConsumo;
+        vlDesc      := aux * Faixa1;
+        vlPago      := aux - vlDesc;
+        writeln('O total sera, R$', aux:0:2, ' com um desconto de 65% ou ', Faixa1:0:2, ', valor de desconto de: R$', vlDesc:0:2, ' o total pago eh de R$', vlPago:0:2 );
+        writeln('Tecle ENTER para finalizar o programa...');
+        readln;
+    end
+else if (vlConsumo >=31) and (vlConsumo <= 100) then
+    begin
+        aux         := vlKwh * vlConsumo;
+        vlDesc      := aux * Faixa2;
+        vlPago      := aux - vlDesc;
+        writeln('O total sera, R$', aux:0:2, ' com um desconto de 40% ou ', Faixa2:0:2, ', valor de desconto de: R$', vlDesc:0:2, ' o total pago eh de R$', vlPago:0:2 );
+        writeln('Tecle ENTER para finalizar o programa...');
+        readln;
+    end
+else if (vlConsumo >= 101) and (vlConsumo <= 220) then
+    begin
+        aux         := vlKwh * vlConsumo;
+        vlDesc      := aux * Faixa3;
+        vlPago      := aux - vlDesc;
+        writeln('O total sera, R$', aux:0:2, ' com um desconto de 10% ou ', Faixa3:0:2, ', valor de desconto de: R$', vlDesc:0:2, ' o total pago eh de R$', vlPago:0:2 );
+        writeln('Tecle ENTER para finalizar o programa...');
+        readln;
+    end
+else if (vlConsumo >= 221) then
+    begin
+        vlPago      := vlKwh * vlConsumo;
+        writeln('O total sera, R$', vlPago:0:2, ' nao obteve desconto');
+        writeln('Tecle ENTER para finalizar o programa...');
+        readln;
+    end;
+end.
+=================================================================================================================================================================
+
+Atividade 02
+=================================================================================================================================================================
+Program condicoesPagamento;
+Const
+    cadDesc1        = 0.20;
+    cadDesc2        = 0.15;
+    cadDesc3        = 0.10;
+    cadDesc4        = 0.05;
+    semDesc1        = 0.15;
+    semDesc2        = 0.10;
+    semDesc3        = 0.05;
+
+Var
+    descCadastro    : string;
+    condicao        : boolean;
+    fromPag         : string;
+begin
+    writeln('O cliente é cadastrado: s/n ');
+    readln(descCadastro);
+    writeln('Forma de pagamento')
+    readln(fromPag)
+    if descCadastro = s then
+    
+
+        
+end;
+=================================================================================================================================================================
+
+Atividade 03
+=================================================================================================================================================================
+Program notaAluno;
+uses crt, sysUtils;
+Const
+    diasLetivo      = 180;
+Var
+    nmAluno                         : string;
+    nota1, nota2, nota3, nota4      : real;
+    vlFrequencia, frenqLetivo       : real;
+    vlMed                           : real;
+    vlRec                           : real;
+
+
+begin
+    writeln('Informe o nome do aluno');
+    readln(nmAluno);
+    writeln('Informe o total de frenquencia do aluno');
+    readln(vlFrequencia);
+        if (vlFrequencia <= 44) then
+        begin
+            writeln('Aluno Reprovado por Frequencia');
+        end;
+        if (vlFrequencia >= 45) then
+        begin
+        writeln('Informe a primeira nota do aluno: ');
+        readln(nota1);
+        writeln('Informe a segunda nota do aluno: ');
+        readln(nota2);
+        writeln('Informe a terceira nota do aluno: ');
+        readln(nota3);
+        writeln('Informe a quarta nota do aluno: ');
+        readln(nota4);
+            vlMed := (nota1 + nota2 + nota3 + nota4) / 4;
+        if (vlMed >= 6.0) then
+            writeln('O aluno: ', nmAluno, ' teve uma media de ', vlMed:0:1, ' e esta Aprovado');
+        if (vlMed <= 4.0) then
+            writeln('O aluno: ', nmAluno, ' teve uma media de ', vlMed:0:1, ' e esta Reprovado por Media');
+        if (vlMed >= 4.1) and (vlMed <= 5.9) then
+            writeln('Aluno em Recuperacao');
+        if (vlMed >= 4.1) and (vlMed <= 5.9) then
+            begin
+                vlRec := 10 - vlMed;
+                writeln('O aluno deve tirar na recuperacao ', vlRec:0:1, 'para estar aprovado');
+            end;
+    end;
+end.
+
+=======================================================================================================================================================================
+
+Atividade 04
+======================================================================================================================================================================
+Program periodosHistoricos;
+uses crt, sysUtils;
+Var
+    vlAno       : integer;
+    vlEra       : integer;
+    desc        : string;
+begin
+    writeln('Informe a era 1 ou 2 '); // 1 para AC e 2 para DC
+    readln(vlEra);
+    writeln('Informe o ano ');
+    readln(vlAno);
+    if (vlEra = 1) then
+            begin
+            if (vlAno <= 4000) then
+            desc := concat ('Pre Historia');
+
+            if (vlAno >= 4001) and (vlAno <= 0) then
+            desc := concat ('Idade Antiga');
+            end;
+    if (vlEra = 2) then
+            begin
+            if (vlAno <= 476) then
+            desc := concat ('Idade AAntiga');
+            if (vlAno >= 477) and (vlAno <= 1453) then
+            desc := concat ('Idade Media');
+            if (vlAno >= 1454) and (vlAno <= 1788) then
+            desc := concat ('Idade Moderna');
+            if (vlAno >= 1789) then
+            desc := concat ('Idade Contemporanea');
+            end;
+writeln(desc);
+writeln('Tecle ENTER para finalizar');
+readln;
+end.
+
+
+

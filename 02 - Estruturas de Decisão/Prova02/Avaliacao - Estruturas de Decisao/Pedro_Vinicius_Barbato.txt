@@ -1,0 +1,204 @@
+Pedro Vinicius Barbato 			21/11/2019
+
+****************************************************
+[EX 1]
+
+Program Tarifa_Energia;
+Uses crt, sysUtils;
+Const
+  Desconto1 = 0.65;
+  Desconto2 = 0.40;
+  Desconto3 = 0.10;
+Var
+  vlKwh, qtConsumo, vlPago, aux, vlDesc : Real;
+  vlResultado : String;
+Begin
+  Writeln('Informe o valor de consumo: ');
+  Readln(qtConsumo);
+  Writeln('Informe o preco de cada kWh: ');
+  Readln(vlKwh);
+  If (qtConsumo <= 30) Then
+    Begin
+      aux := vlKwh * qtConsumo;
+      vlDesc := aux * Desconto1;
+      vlPago := aux - vlDesc;
+      Writeln('O total pago sera de R$', aux:0:2);
+      Writeln('O desconto sera de 65% ou ', Desconto1:0:2);
+      Writeln('Valor de desconto sera R$', vlDesc:0:2);
+      Writeln('O total pago eh de R$', vlPago:0:2);
+      Writeln('Tecle ENTER para finalizar o programa...');
+      Readln;
+    End
+  Else If (qtConsumo >=31) And (qtConsumo <= 100) Then
+         Begin
+           aux := vlKwh * qtConsumo;
+           vlDesc := aux * Desconto2;
+           vlPago := aux - vlDesc;
+           Writeln('O total sera, R$', aux:0:2);
+           Writeln('O desconto sera de 65% ou ', Desconto2:0:2);
+           Writeln('valor de desconto de: R$', vlDesc:0:2);
+           Writeln(' o total pago eh de R$', vlPago:0:2);
+           Writeln('Tecle ENTER para finalizar o programa...');
+           Readln;
+         End
+  Else If (qtConsumo >= 101) And (qtConsumo <= 220) Then
+         Begin
+           aux := vlKwh * qtConsumo;
+           vlDesc := aux * Desconto3;
+           vlPago := aux - vlDesc;
+           Writeln('O total sera, R$', aux:0:2);
+           Writeln('O desconto sera de 65% ou ', Desconto3:0:2);
+           Writeln('valor de desconto de: R$', vlDesc:0:2);
+           Writeln(' o total pago eh de R$', vlPago:0:2);
+           Writeln('Tecle ENTER para finalizar o programa...');
+           Readln;
+         End
+  Else If (qtConsumo >= 221) Then
+         Begin
+           vlPago := vlKwh * qtConsumo;
+           Writeln('O total sera, R$', vlPago:0:2, ' nao obteve desconto');
+           Writeln('Tecle ENTER para finalizar o programa...');
+           Readln;
+         End;
+End.
+***************************************************************************************************************************
+[EX 2]
+
+Program Condicoes_Pagamento;
+
+Uses crt;
+
+Var
+vlCompra, clCadastrado, clNaoCadastrado, formaPagA, formaPagB, formaPagC, formaPagD : Boolean;
+escolhaClienteCad, escolhaClientePag, clienteCadMsg, clientePagMsg : String;
+
+
+   
+	
+Begin
+  Writeln('Bem vindo(a), você possui cadastro na loja(S/N)?');
+  Readln(escolhaClienteCad);
+  clCadastrado := (lowerCase(escolhaClienteCad) = 's');
+  clNaoCadastrado := (lowerCase(escolhaClienteCad) = 'n');
+  Writeln('Insira o valor de sua compra');
+  Readln(vlCompra);
+  Writeln('Aqui estão suas opções de pagamento:');
+  Writeln('A vista em dinheiro ou cheque.(A)');
+  Writeln('A vista no cartão de crédito..(B)');
+  Writeln('Parcelado duas vezes..........(C)');
+  Writeln('Parcelado tres vezes..........(D)');
+  Writeln('Informe a forma de pagamento desejada');
+  Readln(escolhaClientePag);
+  formaPagA := (lowerCase(escolhaClientePag) = 'a');
+  formaPagB := (lowerCase(escolhaClientePag) = 'b');
+  formaPagC := (lowerCase(escolhaClientePag) = 'c');
+  formaPagD := (lowerCase(escolhaClientePag) = 'd');
+
+
+  If (clCadastrado) And (formaPagA) Then
+    Begin
+      vlCompra := (vlCompra - (vlCompra * 0.20));
+      clienteCadMsg := Concat('Sim');
+      ClientePagMsg := Concat('A vista em dinheiro ou cheque');
+    End
+  Else If (clCadastrado) And (formaPagB) Then
+         Begin
+           vlCompra := (vlCompra - (vlCompra * 0.15));
+           clienteCadMsg := Concat('Sim');
+           ClientePagMsg := Concat('A vista no cartão de crédito');
+         End
+  Else If (clCadastrado) And (formaPagC) Then
+         Begin
+           vlCompra := (vlCompra - (vlCompra * 0.10));
+           clienteCadMsg := Concat('Sim');
+           ClientePagMsg := Concat('Parcelado duas vezes');
+         End
+  Else If (clCadastrado) And (formaPagD) Then
+         Begin
+           vlCompra := (vlCompra - (vlCompra * 0.5));
+           clienteCadMsg := Concat('Sim');
+           ClientePagMsg := Concat('Parcelado tres vezes');
+         End
+  Else If (clNaoCadastrado) And (formaPagA) Then
+         Begin
+           vlCompra := (vlCompra - (vlCompra * 0.15));
+           clienteCadMsg := Concat('Nao');
+           ClientePagMsg := Concat('A vista em dinheiro ou cheque');
+         End
+  Else If (clNaoCadastrado) And (formaPagB) Then
+         Begin
+           vlCompra := (vlCompra - (vlCompra * 0.10));
+           clienteCadMsg := Concat('Nao');
+           ClientePagMsg := Concat('A vista no cartão de crédito');
+         End
+  Else If (clNaoCadastrado) And (formaPagC) Then
+         Begin
+           vlCompra := (vlCompra - (vlCompra * 0.5));
+           clienteCadMsg := Concat('Nao');
+           ClientePagMsg := Concat('Parcelado duas vezes');
+         End
+  Else If (clNaoCadastrado) And (formaPagD) Then
+         Begin
+           vlCompra := vlCompra;
+           clienteCadMsg := Concat('Nao');
+           ClientePagMsg := Concat('Parcelado tres vezes');
+         End;
+
+
+  Writeln('Sua tabela de custos;');
+  Writeln('Cliente possui cadastro.....', clienteCadMsg);
+  Writeln('Valor da compra.............', vlCompra);
+  Writeln('Forma de pagamento..........', clientePagMsg);
+  Writeln('Valor desconto..............',vlCompra:0:2);
+  Writeln('Valor final.................',vlCompra:0:2);
+  Readkey;
+End.
+
+
+**************************************************************************************************************************
+
+[EX 3]
+
+Program Notas_Aluno;
+Uses crt, sysUtils;
+
+Const
+  diasLetivo = 225;
+Var
+  noAluno : String;
+  vlNota1, vlNota2, vlNota3, vlNota4 : Real;
+  qtFrequencia, qtPresensa : Real;
+  vlMedia: Real;
+Begin
+  Writeln('Qual o nome do aluno');
+  Readln(noAluno);
+  Writeln('Informe quantidade de frequencia do aluno');
+  Readln(qtFrequencia);
+  If (qtFrequencia <= 44) Then
+    Begin
+      Writeln('Aluno Reprovado por Frequencia');
+    End;
+  If (qtFrequencia >= 45) Then
+    Begin
+      Writeln('Qual a primeira nota do aluno: ');
+      Readln(vlNota1);
+      Writeln('Qual a segunda nota do aluno: ');
+      Readln(vlNota2);
+      Writeln('Qual a terceira nota do aluno: ');
+      Readln(vlNota3);
+      Writeln('Qual a quarta nota do aluno: ');
+      Readln(vlNota4);
+      vlMedia:= (vlNota1 + vlNota2 + vlNota3 + vlNota4) / 4;
+      If (vlMedia>= 6.0) Then
+        Writeln('O aluno: ', noAluno, ' teve uma media de ', vlMedia:0:1, ' e esta Aprovado');
+      If (vlMedia<= 4.0) Then
+        Writeln('O aluno: ', noAluno, ' teve uma media de ', vlMedia:0:1,
+                ' e esta Reprovado por Media');
+      If (vlMedia>= 4.1) And (vlMedia<= 5.9) Then
+        Writeln('Aluno em Recuperacao');
+    End;
+End.
+
+*************************************************************************************************************
+
+

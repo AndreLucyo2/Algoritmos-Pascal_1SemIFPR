@@ -1,0 +1,306 @@
+
+Program questao01;
+	{$codepage utf8}
+	uses crt, sysutils;
+
+	const
+	DESC_FAIXA_A = 0.65;   
+	DESC_FAIXA_B = 0.40;  
+	DESC_FAIXA_C = 0.10;  
+
+	var
+	qtdConsumo 	      :real;
+	precoKwh 	        :real;
+	vlFtura  		      :real;
+	vlFturaComDescont :real;
+	vlDescontoo       :real;
+	percDesconto      :real;
+
+Begin
+
+  writeln('Informe consumo em KWh:');
+	readln(qtdConsumo);
+
+	writeln('Informe o preço por KWh:');
+	readln(precoKwh);	
+
+	If (qtdConsumo <= 30) Then
+		begin
+			percDesconto:=DESC_FAIXA_A;
+        end
+
+	Else if (qtdConsumo > 30) and (qtdConsumo <= 100)Then
+		begin
+			percDesconto:=DESC_FAIXA_B;
+        end
+
+	Else if (qtdConsumo > 100) and (qtdConsumo <= 220)Then
+		begin
+			percDesconto:=DESC_FAIXA_C;
+        end
+	Else if (qtdConsumo < 220)Then
+		begin
+			percDesconto:= 0 ;
+        end;
+
+	//Calculos:
+	vlFtura           := qtdConsumo * precoKwh;
+	vlDescontoo       := vlFtura * percDesconto;
+	vlFturaComDescont := vlFtura - vlDescontoo;
+
+	writeln();
+	writeln('------------------------------------------------------');
+  writeln(); 	
+	writeln('Total da fatura sem desconto.........R$',vlFtura:0:2);
+	writeln('Desconto concedido ....................',percDesconto:0:2,'%');
+	writeln('Valor do desconto ...................R$',vlDescontoo:0:2);
+	writeln();
+	writeln('------------------------------------------------------');
+	writeln();
+	writeln('Total da fatura .....................R$',vlFturaComDescont:0:2 );
+	writeln();
+	writeln('------------------------------------------------------');
+	writeln();	
+	writeln('Pressione [ENTER] para encerrar.');
+	readln;
+End.
+
+================================================================================================================
+
+Program questao02;
+	{$codepage utf8}
+	uses crt, sysutils;
+
+	var
+	tipoCliente       :Integer;
+	formaDePagto      :Integer;
+	vlCompra          :real;
+	vlDescontoo       :real;
+	percDesconto      :real;
+	vlCompraComDescont:real;
+
+Begin
+
+	WriteLn('-----------------  DADOS DA COMPPRA -----------------------------------');
+	writeln('Qual o valor da compra?');
+	readln(vlCompra);
+
+	writeln();
+	WriteLn('-----------------  TIPO DE CLIENTE ------------------------------------');
+	writeln('Cliente ja Cadastrado?');
+	writeln('[0] - Não');
+	writeln('[1] - Sim');
+	readln(tipoCliente);
+
+	writeln();
+	WriteLn('-----------------  FORMA DE PAGAMENTO ---------------------------------');
+	writeln('[1] - À vista em dinheiro ou cheque.');
+	writeln('[2] - À vista no cartão de credito.');
+	writeln('[3] - Parcelado em 2 vezes.');
+	writeln('[4] - Parcelado em 3 vezes.');
+	readln(formaDePagto);
+	writeln();
+
+	If (tipoCliente = 1) Then
+		begin
+			case formaDePagto of
+				1: percDesconto:=0.20;
+				
+				2: percDesconto:=0.15;
+				
+				3: percDesconto:=0.10;
+				
+				4: percDesconto:=0.05;
+					
+      		end
+		end
+
+	Else 
+		begin
+			case formaDePagto of
+				1: percDesconto:=0.15;
+				
+				2: percDesconto:=0.10;
+				
+				3: percDesconto:=0.05;
+				
+				4: percDesconto:=0;
+					
+        end	
+	end;
+
+	//Calculos:
+	vlDescontoo       := vlCompra * percDesconto;
+	vlCompraComDescont := vlCompra - vlDescontoo;
+
+	writeln();
+	writeln('------------------------------------------------------');
+  writeln(); 	
+	writeln('Vlor da compra sem desconto.........R$',vlCompra:0:2);
+	writeln('Desconto concedido ....................',percDesconto:0:2,'%');
+	writeln('Valor do desconto ...................R$',vlDescontoo:0:2);
+	writeln();
+	writeln('------------------------------------------------------');
+	writeln();
+	writeln('Total a pagar .....................R$',vlCompraComDescont:0:2 );
+	writeln();
+	writeln('------------------------------------------------------');
+	writeln();	
+	writeln('Pressione [ENTER] para encerrar.');
+	readln;
+End.
+
+==========================================================================================================================
+
+
+Program questao03;
+	{$codepage utf8}
+	uses crt, sysutils;
+
+	var
+		nmAluno     : string;
+		n1,n2,n3,n4 : real;
+		soma        : real;
+		media       : real;
+		notaRec     : real;
+		resultadoRec: String;
+		resultado   : String;
+
+		qtdAulas    : integer;
+		qtdFaltas   : integer;
+		pcntFaltas  : real;
+
+Begin
+
+	WriteLn('-----------------  DADOS DO ALUNO -----------------------------------');
+	WriteLn('Digite o Nome do Aluno: ');
+	readln(nmAluno);
+
+	writeln();
+	WriteLn('-----------------  TOTAL DE AULAS -----------------------------------');
+	WriteLn('Digite numero de aula: ');
+	readln(qtdAulas);
+
+	writeln();
+	WriteLn('-----------------  FALTAS DO ALUNO -----------------------------------');
+	WriteLn('Digite a Qtde de faltas: ');
+	readln(qtdFaltas);	
+
+	writeln();
+	WriteLn('-----------------  NOTAS DO ALUNO [0 a 100]  --------------------------');
+	WriteLn('Digite a primeira nota: ');
+	readln(n1);
+	WriteLn('Digite a segunda nota: ');
+	readln(n2);
+	WriteLn('Digite a terceira nota: ');
+	readln(n3);
+	WriteLn('Digite a quarta nota: ');
+	readln(n4);
+	writeln();
+
+	//calcular % de fatas:
+	pcntFaltas := (qtdFaltas*100)/qtdAulas;
+
+	//calculo da Média:
+	soma :=(n1+n2+n3+n4);
+    media:=(soma/4);
+
+	if (pcntFaltas > 25) then
+		begin
+			resultado:='Reprovado por frequencia.';
+		end
+	else if (pcntFaltas > 25) and (media < 60) then
+		begin
+			resultado:='Reprovado por frequencia.';
+		end
+	else if (pcntFaltas < 25) and (media >= 60) then
+		begin
+			resultado:='Aprovado';
+		end
+	else if (pcntFaltas < 25) and (media < 60) and (media > 40) then
+		begin			
+			resultado:='Em recuperação!';
+			notaRec := 100 - media;
+			
+			resultadoRec := concat('Nota necessaria: ',FloatToStr(notaRec));
+			
+		end
+	else if (pcntFaltas < 25) and (media <= 40) then
+		begin
+			resultado:='Peprovado por media!';
+		end;
+
+		writeln('Aluno     : ',nmAluno);
+		writeln('Resultado : ',resultado);  		
+		WriteLn('----------------------------------------------');
+		writeln('Faltou = ',pcntFaltas:0:0,'%');
+		writeln('Média  = ',media:0:2);
+		WriteLn(resultadoRec);  //Mostra se estiver em recuperação
+		writeln();
+
+	writeln('Pressione [ENTER] para encerrar.');
+	readln;
+End.
+
+
+==================================================================================================================================
+
+
+Program questao04;
+	{$codepage utf8}
+	uses crt, sysutils;
+
+	var
+	idAno :Integer;
+	idEra :Integer;
+	msg   : string;
+
+Begin
+
+	WriteLn('-----------------  DADOS -----------------------------------');
+	writeln('Informe ano?');
+	readln(idAno);
+	writeln();	
+	writeln('Qual ERA?');
+	writeln('[0] - AC');
+	writeln('[1] - DC');
+	readln(idEra);
+	writeln();
+
+	if (idEra = 0) and (idAno >= 300000) and (idAno < 4000) then
+		begin
+			msg:='Pré Historia';
+		end	
+	else if  (idEra = 0) and (idAno >= 4000) and (idAno < 1) then
+		begin
+			msg:='Idade Antiga';
+		end
+	else if  (idEra = 1) and (idAno >= 1) and (idAno < 476) then
+		begin
+			msg:='Idade Antiga';
+		end
+	else if  (idEra = 1) and (idAno >= 476) and (idAno < 1453) then
+		begin
+			msg:='Idade Média';
+		end
+	else if  (idEra = 1) and (idAno >= 1453) and (idAno < 1789) then
+		begin
+			msg:='Idade Moderna';
+		end
+	else if  (idEra = 1) and (idAno >= 1789) then
+		begin
+			msg:='Idade Contemporanea';
+		end;
+
+	
+	writeln();
+	writeln('------------------------------------------------------'); 
+	writeln();
+	writeln(msg);
+	writeln();
+	writeln('------------------------------------------------------'); 
+	
+	writeln();	
+	writeln('Pressione [ENTER] para encerrar.');
+	readln;
+End.

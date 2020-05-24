@@ -1,0 +1,47 @@
+A lanchonete Gostosura vende apenas um tipo de sanduíche, 
+cujo recheio inclui duas fatias de queijo, uma fatia de presunto 
+e uma rodela de hambúrguer.
+Sabendo que cada fatia de queijo ou presunto pesa 50 gramas, 
+e que a rodela de hambúrguer pesa 100 gramas, faça um algoritmo em
+que o dono forneça a quantidade de sanduíches a fazer, e a máquina 
+informe as quantidades (em quilos) de queijo, presunto e carne 
+necessários para compra.
+
+ preciso fazer 120 sanduiches
+	 2X queijo     50g
+	 1X presunto   50g
+	 1X hambúrguer 100g
+	 _______________________
+	 total de cada igrediente em kg??
+
+------------------------------------------------------------------
+programa Exercicio16;
+
+	var qtdSancuiches : real;
+	var qtdQueijo : real;
+	var qtdPresunto : real;
+	var qtdHamburguer: real;
+	var qtdQueijoComprar : real;
+	var qtdPresuntoComprar : real;
+	var qtdHamburguerComprar: real;
+
+INICIO
+
+	qtdQueijo <- 50g;
+	qtdPresunto <- 50g;
+	qtdHamburguer <- 100g;
+
+	Escreve('Informe a Qtde. de sanduiches :');
+	leia(qtdSancuiches);
+
+    qtdQueijoComprar <- (qtdQueijo*qtdSancuiches)/1000;
+	qtdPresuntoComprar <- (qtdPresunto*qtdSancuiches)/1000;
+	qtdHamburguerComprar <- (qtdHamburguer*qtdSancuiches)/1000;
+	
+	Escreve('Para fazer ',qtdSancuiches,'sanduiches');
+	Escreve('serão necessários: ');
+	Escreve(qtdQueijoComprar,'kg de queijo');
+	Escreve(qtdPresuntoComprar,'kg de presunto');
+	Escreve(qtdHamburguerComprar,'kg de hambúrguer');
+	
+FIM

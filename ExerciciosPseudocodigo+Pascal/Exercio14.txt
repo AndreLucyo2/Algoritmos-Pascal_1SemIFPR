@@ -1,0 +1,24 @@
+Calcule a área de uma pizza que possui um raio R (pi=3.14).
+
+ A = Pi * R²  
+------------------------------------------------------------------
+
+programa Exercicio14;
+
+	var raio : real;
+	var area : real;
+     
+	const pi : pi;
+
+INICIO
+
+	Escreve('Informe o raio da pizza :');
+	leia(raio);	
+		
+		
+	area <- pi *(sqr(raio)));	
+	
+
+	Escreve('A area calculada é: ', area:3:3 );
+	
+FIM

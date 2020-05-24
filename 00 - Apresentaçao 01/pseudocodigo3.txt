@@ -1,0 +1,67 @@
+
+Agora suponha que seu plano de celular tenha uma franquia de 700
+minutos, e que sua conta de telefone mostre o valor da franquia, o
+valor total a ser pago (que pode ser igual ou maior que a franquia)
+e a quantidade de minutos excedentes utilizados num mês.
+Contudo, você não sabe quanto a operadora lhe cobra por cada
+minuto excedente. Crie um algoritmo que determine quando você
+pagou por cada minuto excedente.
+
+	ENTRADA
+		
+		Teho:
+		Franquia contratada em minutos = 700;		
+		
+		Ftura:
+		valor da fraquia;
+		valor da fatura;
+		total de minutos excedente;
+		valor total a ser pago;
+		
+
+	PROCESSAMENTO
+	
+         VPagoMin <- ( fatura - fraquia )/ minutosFatura;
+	
+	
+	SAIDA
+	
+	    Quanto a operadora cobra por minuto excedente?
+		Valor pago por minutos excedidos?? : VPagoMin
+		
+	
+--------------------------------------------------------------
+
+calculoFranquiaExercicio3;
+
+	
+	vFranquia : real;
+	vFatura : real;	
+	totalMinutos : inteiro;
+	minExdente: inteiro;
+	
+
+INICIO
+
+	Escreve('Informe o valor da franquia');
+	leia(vFranquia);   700
+	
+	Escreve('Informe o valor da fatura');
+	leia(vFatura);     800
+	
+	Escreve('Informe o total de minutos');
+	leia(totalMinutos); 50
+	
+					(800-700)
+					100/50
+					2
+
+		minExdente <-(vFatura-vFranquia)/totalMinutos;
+		
+		
+	
+	
+	Escreve('Valor do Minutos excedidos: ', minExdente);
+	
+
+FIM

@@ -1,0 +1,290 @@
+{
+//-------------------------------EXERCICIO1-----------------------------
+program Energia;
+{$codepage utf8}
+var
+	vlConsumo : integer;
+	vlPreco,vlTotalFatsemDes, vlDesconto,vlApagar : real;
+	vlPorcentual : string;
+begin
+//--------------entrada dos dados
+	writeln('Qual o consumo de KWH ?');
+	readln(vlConsumo);
+    writeln('Qual o Preço ?');
+	readln(vlPreco);
+
+//--------Calculo dos dados-------------
+	if(vlConsumo <= 30)then
+	begin
+		vlTotalFatsemDes:= vlConsumo * vlPreco ;
+		vlPorcentual := '65 %';
+		vlDesconto := vlTotalFatsemDes * 0.65;
+		vlApagar := vlTotalFatsemDes - vlDesconto;
+	end
+	else
+	if(vlConsumo >30) and (vlConsumo <= 100)then
+	begin
+		vlTotalFatsemDes:= vlConsumo * vlPreco ;
+		vlPorcentual := '40 %';
+		vlDesconto := vlTotalFatsemDes * 0.40;
+		vlApagar := vlTotalFatsemDes - vlDesconto;
+	end
+	else
+	if(vlConsumo > 100) and (vlConsumo <= 220)then
+	begin
+		vlTotalFatsemDes:= vlConsumo * vlPreco ;
+		vlPorcentual := '10 %';
+		vlDesconto := vlTotalFatsemDes * 0.10;
+		vlApagar := vlTotalFatsemDes - vlDesconto;
+	end
+	else
+	begin
+		vlTotalFatsemDes:= vlConsumo * vlPreco ;
+		vlPorcentual := '0 %';
+		vlDesconto := vlTotalFatsemDes * 0;
+		vlApagar := vlTotalFatsemDes - vlDesconto;
+	end;
+
+//-------------------Saida dos dados-------------------------------------
+
+	writeln('------------- Resumo da Fatura -----------');
+	writeln('Total da Fatura sem desconto:--R$:',vlTotalFatsemDes:0:2); // total da fatura sem desconto
+	writeln('O valor do porcentual e de ----R$:',vlPorcentual);      //Valor % porcentual
+	writeln('O valor do desconto e de ------R$:', vlDesconto:0:2);      //Valor do desconto em reais
+	writeln('o valor total a pagar e de ----R$:',vlApagar:0:2);          //valor total da fatura
+
+
+
+    writeln('Aperte enter para continuar ...');
+    readln();
+end.
+
+}
+//-------------------------------EXERCICIO2-----------------------------
+
+{
+program CondicaoPagamento;
+{$codepage utf8}
+const
+//------   valores clientes cadastradps --------
+	idopcao1=0.20; //avista dinheirou ou chegue
+	idopcao2=0.15; //avisa cartao credito
+	idopcao3=0.10; //parcelado 2 x
+	idopcao4=0.5; //parcelado 3 x
+//------   valores clientes nao cadastrados --------
+	idopcao5=0.15; //avista dinheirou ou chegue
+	idopcao6=0.10; //avisa cartao credito
+	idopcao7=0.5; //parcelado 2 x
+	idopcao8=0; //parcelado 3 x
+
+
+var
+	idCadastro, idformaPagamento : string;
+	vlCompra, vlDesconto, vlApagar: real;
+
+begin	
+//-------------entradas dos dados-------------
+	write('Qual o valor da compra--- :R$:');
+	readln(vlCompra);
+	Write('Cliente com Cadastro----- [s/n]?');
+	readln(idCadastro);
+	Writeln('Forma de pagamento ?');
+	writeln(' A vista / dinheiro / cheque-- [1]');
+	writeln(' A vista no cartao de credito- [2]');
+	writeln(' Parcelado 2 x --------------- [3]');
+	writeln(' Parcelado 3 x ----------------[4]');
+	readln(idformaPagamento);
+
+//---------- cliente com cadastro ------------
+	if(idCadastro = 's')then
+	begin
+
+			if(idformaPagamento = '1')then
+			begin
+			vlDesconto := vlCompra * idopcao1;
+			vlApagar   := vlCompra - vlDesconto ;
+			end
+			else
+			if(idformaPagamento = '2')then
+			begin
+			vlDesconto := vlCompra * idopcao2;
+			vlApagar   := vlCompra - vlDesconto ;
+			end
+			else
+			if(idformaPagamento = '3')then
+			begin
+			vlDesconto := vlCompra * idopcao3;
+			vlApagar   := vlCompra - vlDesconto ;
+			end
+			else
+			begin
+			vlDesconto := vlCompra * idopcao4;
+			vlApagar   := vlCompra - vlDesconto ;
+			end;
+
+	end
+//---------- cliente sem cadastro ------------	
+	else
+		if(idformaPagamento = '1')then
+			begin
+			vlDesconto := vlCompra * idopcao5;
+			vlApagar   := vlCompra - vlDesconto ;
+			end
+			else
+			if(idformaPagamento = '2')then
+			begin
+			vlDesconto := vlCompra * idopcao6;
+			vlApagar   := vlCompra - vlDesconto ;
+			end
+			else
+			if(idformaPagamento = '3')then
+			begin
+			vlDesconto := vlCompra * idopcao7;
+			vlApagar   := vlCompra - vlDesconto ;
+			end
+			else
+			begin
+			vlDesconto := vlCompra * idopcao8;
+			vlApagar   := vlCompra - vlDesconto ;
+			end;
+
+//-------------------------SAIDA DOS DADOS--------------------------
+	writeln('-------------------- Resumo ---------------');
+	writeln('O valor da compra e de :-----R$:',vlCompra:0:2);        // valor da compra
+	writeln('O valor do desconto e de ----R$:', vlDesconto:0:2); //Valor do desconto em reais
+	writeln('o valor total a pagar e de --R$:',vlApagar:0:2);    //valor total da pagar com desconto
+
+
+
+    writeln('Aperte enter para continuar ...');
+    readln();
+end.
+}
+
+//-------------------------------EXERCICIO3------------------------------------------------------------------------------------------------------------------
+
+{
+program NotasAluno;
+{$codepage utf8}
+
+var
+	idNome : string;
+	vlNota1, vlNota2, vlNota3, vlNota4, idReprovaFalta, vlMedia, vlNotaMinima: real;
+	vlFaltas, vlAulas: integer;
+
+begin
+//---- informaçoes do aluno ----------
+
+	write('Nome:');
+	readln(idNome);
+	write('1ª nota :');
+	readln(vlNota1);
+	write('2ª nota :');
+	readln(vlNota2);
+	write('3ª nota :');
+	readln(vlNota3);
+	write('4ª nota :');
+	readln(vlNota4);
+	write('Faltas :');
+	readln(vlFaltas);
+	write('total de Aulas :');
+	readln(vlAulas);
+
+//----- calculo das faltas -------
+	idReprovaFalta := vlAulas * 0.25;
+
+//--------calculo media --------------
+vlMedia := (vlNota1 + vlNota2 + vlNota3 + vlNota4)/4;
+
+//---------------------Condições do programa -------------
+
+	if(vlFaltas >= idReprovaFalta )then
+	begin
+		writeln('Reprovado por Frequencia ');
+	end
+	else
+		if(vlMedia >= 60)then
+		begin
+		writeln('Aprovado');
+		end
+		else
+			if(vlMedia > 40) and (vlMedia < 60)then
+			begin
+			vlNotaMinima := 10 - vlMedia ;
+			writeln('Em Recuperação ... nota minima apara aprovação e de :',vlNotaMinima:0:2);
+			end
+			else
+				if(vlMedia <= 40)then
+				begin
+					writeln ('Reprovado por Média');
+				end;
+
+
+    writeln('Aperte enter para continuar ...');
+    readln();
+end.
+}
+//-------------------------------EXERCICIO4------------------------------------------------------------------------------------------------------------------
+
+
+
+program PeriodoHistoria;
+{$codepage utf8}
+
+var
+	idAno : integer;
+	idAcDC : string;
+
+begin
+	write('Informe o Ano:');
+	readln(idAno);
+	writeln('AC  [1] ou  DC [2]');
+	readln(idAcDC);
+	
+////------------------ AC ---------------------------------
+	if(idAcDC = '1' )then
+	begin
+		if(idAno > 300.000)and (idAno <= 4000)then
+		begin
+			writeln ('Periodo Pre-Historico / Pre-Historia');
+		end
+		else
+		if(idAno > 4000) and (idAno <= 476)then
+		begin
+			writeln('Periodo Historico / Idade Antiga');
+		end;
+	end
+	else
+//------------------ DC ---------------------------------
+	if(idAcDC = '2')then
+	begin
+		if(idAno > 756 )and (idAno <=1453)then
+		begin
+			writeln('Periodo Historico / Idade Média');
+		end
+		else
+		if(idAno > 1453) and (idAno <=1789)then
+		Begin
+			writeln('Periodo Historico / Idade Moderna');
+		end
+		else
+		begin
+			writeln('Periodo Historico / Idade Contemporânia');
+		end;
+	end
+	else
+	begin
+		writeln ('Erro entre com [1] ou [2]');
+	end;
+
+
+
+    writeln('Aperte enter para continuar ...');
+    readln();
+end.
+
+
+
+
+
+

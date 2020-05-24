@@ -1,0 +1,35 @@
+Construa um algoritmo para calcular a distância entre dois pontos do 
+plano cartesiano. Cada ponto é um par ordenado (x,y).
+
+distAB = raiz(( xB - xA)exp 2)+ (( yB - yA)exp 2)
+
+------------------------------------------------------------------
+programa Exercicio10;
+
+	var xA, xB ,yA , yB, distAB : real;
+     
+
+INICIO
+
+	Escreve('Informe a coordenada X para o ponto A:');
+	leia(xA);
+	
+	Escreve('Informe a coordenada Y para o ponto A:');
+	leia(yA);
+	
+	Escreve('Informe a coordenada X para o ponto B:');
+	leia(xB);
+	
+	Escreve('Informe a coordenada Y para o ponto B:');
+	leia(yB);
+	
+	
+	//distAB <- raiz((( xB - xA)exp 2)+ (( yB - yA)exp 2))
+	
+	distAB <- sqrt((sqr( xB - xA))+ (sqr( yB - yA)))	
+	
+	
+
+	Escreve('A distancia entre as coordenadas do ponto A e B é : ', distAB:4:4);//resultado com 4 casas decimais
+	
+FIM

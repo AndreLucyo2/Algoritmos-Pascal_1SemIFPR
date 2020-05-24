@@ -1,0 +1,34 @@
+Entrar com o dia e o mês de uma data e informar quantos dias se passaram 
+desde o início do ano. Esqueça a questão dos anos bissextos e considere 
+sempre que um mês possui 30 dias.
+
+	dia 14
+	mes 05
+	
+	dias = (4*30)+14;
+	
+-----------------------------------------------------------------------
+programa Exercicio7;
+
+	var inputDia : inteiro;
+	var inputMes : inteiro;
+	var diaMes : inteiro;
+	var dias: inteiro;
+
+INICIO
+
+	diaMes <- 30;
+	
+	Escreve('Informe e umero do mes:');
+	leia(inputMes);
+	
+	Escreve('Informe dia deste mes:');
+	leia(inputDia);
+	
+	
+	dias <- ((inputMes - 1)*diaMes) + inputDia;
+	
+	
+	Escreve('Total de dias desde o inicio do ano até o dia informado é : ', dias);
+
+FIM

@@ -1,0 +1,30 @@
+Faça um algoritmo que receba três números, 
+calcule e mostre a multiplicação desses números.
+
+------------------------------------------------------------------
+programa Exercicio26;
+
+	var numero1 : real;
+	var numero2 : real;
+	var numero3 : real;
+	var resultado : real;	
+
+	
+INICIO
+
+	Escreve('Informe um numero:');
+	leia(numero1);
+	
+	Escreve('Informe mais um numero:');
+	leia(numero2);
+	
+	Escreve('Informe outro  numero:');
+	leia(numero3);
+	
+	resultado <- numero1 * numero2 * numero3;
+	
+
+	Escreve('Resultado da multiplicação :', resultado);	
+	
+	
+FIM

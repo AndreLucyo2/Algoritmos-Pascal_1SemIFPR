@@ -1,0 +1,29 @@
+Faça um algoritmo que receba dois números, calcule e mostre a 
+divisão do primeiro número pelo segundo. Sabe-se que o segundo 
+número não pode ser zero, portanto não é necessário se
+preocupar com validações.
+
+------------------------------------------------------------------
+programa Exercicio27;
+
+	var numero1 : real;
+	var numero2 : real;
+	var resultado : real;	
+
+	
+INICIO
+
+	Escreve('Informe um numero:');
+	leia(numero1);
+	
+	Escreve('Informe mais um numero maior que zero:');
+	leia(numero2);
+	
+	
+	resultado <- numero1 / numero2;
+	
+
+	Escreve('Resultado da divisão :', resultado);	
+	
+	
+FIM

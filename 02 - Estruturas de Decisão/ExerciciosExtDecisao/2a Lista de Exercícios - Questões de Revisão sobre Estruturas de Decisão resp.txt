@@ -1,0 +1,48 @@
+Verdadeiro = 1
+     falso = 0
+
+and = * multiplicação
+or  = + soma 
+
+
+resposta revisão:
+01:
+resp c
+
+02:
+resp b
+
+03:
+resp b
+
+04:
+resp C
+
+05:
+resp c 
+
+06:
+resp d
+
+07:
+resp C
+
+08:
+resp b
+
+09:
+resp:a
+
+10:
+resp: d
+
+11:
+resp: c
+
+12:
+resp: 
+
+
+	
+
+

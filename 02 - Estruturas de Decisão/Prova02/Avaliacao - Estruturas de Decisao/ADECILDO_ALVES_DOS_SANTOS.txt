@@ -1,0 +1,181 @@
+program questao_01;
+const
+	vlDescFaixa1  = 0.65;
+	vlDescFaixa2  = 0.40;
+	vlDescFaixa3  = 0.10;
+	vlDescFaixa4  = 0;
+var
+	qtConsumo     : integer;
+	vlKwh         : real;
+	vlFatura      : real;
+	vlDesconto    : real;
+	vlDescontoPer : string;
+	vlFinalFatura : real;
+begin
+	writeln ('Informe a quantidade consumida de KWh');
+	readln  (qtConsumo);
+	writeln ('Informe o valor de cada KWh');
+	readln  (vlKwh);
+	if	 qtConsumo <= 30 then
+			begin
+				vlFatura   := (qtConsumo * vlKwh);
+				vlDesconto := (vlFatura * vlDescFaixa1);
+				vlDescontoPer := '65%';
+			end
+	else if qtConsumo <= 100 then
+			begin
+				vlFatura   := (qtConsumo * vlKwh);
+				vlDesconto := (vlFatura * vlDescFaixa2);
+				vlDescontoPer := '40%';
+			end
+	else if qtConsumo <=220 then
+			begin
+				vlFatura   := (qtConsumo * vlKwh);
+				vlDesconto := (vlFatura * vlDescFaixa3);
+				vlDescontoPer := '10%';
+			end
+	else if qtConsumo >220 then
+			begin
+				vlFatura   := (qtConsumo * vlKwh);
+				vlDescontoPer := '*Não ha desconto para a Faixa de consumo';
+			end;
+	writeln ('O total da sua fatura eh R$ ' ,vlFatura:0:2);
+	writeln ('O percentual de desconto eh de ' ,vlDescontoPer);
+	writeln ('O valor do desconto eh de R$ ' ,vlDesconto:0:2);
+	writeln ('O valor final da fatura eh de R$ ' ,(vlFatura - vlDesconto):0:2);
+	readln;
+end.
+
+
+
+program questao_02;
+const
+	dsCCadAvista  = 0.20;
+	dsCCadCartao  = 0.15;
+	dsCCadParc2   = 0.10;
+	dsCCadParc3   = 0.05;
+	dsSCadAvista  = 0.15;
+	dsSCadCartao  = 0.10;
+	dsSCadParc2   = 0.05;
+	dsSCadParc3   = 0.00;
+var
+	tpCliente     : integer;
+	fmPagto       : integer;
+	vlCompra      : real;
+	vlDesconto    : real;
+	vlFinalCompra : real;
+begin
+	writeln ('Informe se o Cliente possui cadastro: (1)CLIENTE CADASTRADO (2)CLIENTE SEM CADASTRO');
+	readln  (tpCliente);
+	if   tpCliente = 1 then
+	    begin
+			  writeln ('Informe a forma de pagamento:');
+				writeln ('(1) A vista em dinheiro ou cheque');
+				writeln ('(2) A vista no cartao de credito');
+				writeln ('(3) Parcelado em duas vezes');
+				writeln ('(4) Parcelado em tres vezes');
+				readln  (fmPagto);
+				writeln ('Informe o valor da compra');
+				readln  (vlCompra);
+				if   fmPagto = 1 then
+				     begin
+						      vlDesconto := (vlCompra * dsCCadAvista)
+						 end
+						 else  if  fmPagto = 2 then
+						 begin
+						      vlDesconto := (vlCompra * dsCCadCartao)
+						 end
+						 else  if  fmpagto = 3 then
+						 begin
+							    vlDesconto := (vlCompra * dsCCadParc2)
+						 end
+						 else  if  fmpagto = 4 then
+						 begin
+							    vlDesconto := (vlCompra * dsCCadParc3)
+						 end;
+			end
+	else
+	    if   tpCliente = 2 then
+			    begin
+					   writeln ('Informe a forma de pagamento:');
+				     writeln ('(1) A vista em dinheiro ou cheque');
+				     writeln ('(2) A vista no cartao de credito');
+				     writeln ('(3) Parcelado em duas vezes');
+				     writeln ('(4) Parcelado em tres vezes');
+				     readln  (fmPagto);
+				     writeln ('Informe o valor da compra');
+				     readln  (vlCompra);
+				     if   fmPagto = 1 then
+				     begin
+						      vlDesconto := (vlCompra * dsSCadAvista)
+						 end
+						 else  if  fmPagto = 2 then
+						 begin
+						      vlDesconto := (vlCompra * dsSCadCartao)
+						 end
+						 else  if  fmpagto = 3 then
+						 begin
+							    vlDesconto := (vlCompra * dsSCadParc2)
+						 end
+						 else  if  fmpagto = 4 then
+						 begin
+							    vlDesconto := (vlCompra * dsSCadParc3)
+						 end;
+			end;
+	writeln ('O valor de sua compra eh R$ ' ,vlCompra:0:2);
+	writeln ('O valor do desconto eh de R$ ' ,vlDesconto:0:2);
+	writeln ('O valor final da de sua compra eh R$ ' ,(vlCompra - vlDesconto):0:2);
+	readln;
+end.
+
+
+
+program questao_03;
+var
+	nmAluno       : string;
+	nota1         : real;
+	nota2         : real;
+	nota3         : real;
+	nota4         : real;
+	nrFaltas      : integer;
+	nrAulas       : integer;
+	media					: real;
+	situacao      : string;
+begin
+	writeln ('Informe o nome do aluno');
+	readln  (nmAluno);
+	writeln ('Informe a nota do primeiro trimestre');
+	readln  (nota1);
+	writeln ('Informe a nota do segundo trimestre');
+	readln  (nota2);
+	writeln ('Informe a nota do terceiro trimestre');
+	readln  (nota3);
+	writeln ('Informe a nota do quarto trimestre');
+	readln  (nota4);
+	writeln ('Informe a quantidade de faltas');
+	readln  (nrFaltas);
+	writeln ('Informe a quantidade de aulas');
+	readln  (nrAulas);
+	media:= ((nota1 + nota2 + nota3 + nota4)/4);
+	      if    nrFaltas > (nrAulas * 0.25) then
+		    writeln ('Reprovado por frequencia');
+				readln;
+				end
+  else  if (media > 60) then
+			  writeln ('APROVADO');
+        readln;
+				end
+	else  if (media < 60) and (media > 40) then
+				writeln ('EM RECUPERACAO');
+				writeln ('a nota que voce precisa tirar na recuperacao é ' 10 - ,media);
+				readln;
+				end
+	else  if (media) < 40) then
+				writeln ('REPROVADO POR MEDIA');
+				readln;
+				end;
+
+	writeln (,nmAluno 'Sua média Final é ' ,media);
+end.
+
+

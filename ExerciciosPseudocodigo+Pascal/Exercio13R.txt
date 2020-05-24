@@ -1,0 +1,53 @@
+Ler um número inteiro (assuma até três dígitos) 
+e imprimir a saída da seguinte forma:
+CENTENA = x
+DEZENA = x
+UNIDADE = x
+ 
+	numero = 145
+	
+	1 centena
+	4 dezensas
+	5 unidas
+
+	numero/100;
+	
+	numero/10;
+	
+	numero/1;
+
+------------------------------------------------------------------
+programa Exercicio13;
+
+	var numero : real;
+	var centenas : real;
+	var dezenas : real;
+	var unidades : real;	
+
+	
+INICIO
+
+	Escreve('Informe um numerro:');
+	leia(numero);
+	
+	
+	
+	centenas <- trunc(numero/100);
+	
+	dezenas <- trunc(numero-centena/10)
+	
+	unidades <- trunc(numero-centenas-dezenas/1)
+	
+	
+	
+
+	Escreve('numero informado :', numero);
+	
+	Escreve('centenas :', centenas);
+	
+	Escreve('dezenas :', dezenas);
+	
+	Escreve('unidades :', unidades);	
+	
+	
+FIM

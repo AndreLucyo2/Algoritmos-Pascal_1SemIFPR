@@ -1,0 +1,55 @@
+A fábrica de refrigerantes Meia-Cola vende seu produto em três formatos: 
+lata de 350 ml, garrafa de 600 ml e garrafa de 2 litros. 
+Se um comerciante compra uma determinada quantidade de cada formato, 
+faça um algoritmo para calcular quantos litros de refrigerante ele comprou.
+	
+    lata = 350ml/1000 = 0.35l
+	garrafa = 600ml/1000 = 0.6l
+	garrafa = 2l
+
+------------------------------------------------------------------
+programa Exercicio13;
+
+	var lata : real;
+	var garrafaP : real;
+	var garrafaG : real;
+	
+	var qtdCompraLata : real;
+	var qtdCompraGarrafaP : real;
+	var qtdCompraGarrafaG : real;
+	
+	var qtdLitros : real;
+	
+INICIO
+
+	//Converter tudo em litros:
+	lata <- 350/1000;
+	garrafaP <- 600/1000;
+	garrafaG <- 2;
+	
+
+	Escreve('Informe a quantidade de compra de latas de 350ml:');
+	leia(qtdCompraLata);	
+		
+	Escreve('Informe a quantidade de compra da Garrafa de 350ml:');
+	leia(qtdCompraGarrafaP);
+	
+	Escreve('Informe a quantidade de compra da Garrafa de 600ml');
+	leia(qtdCompraGarrafaG);
+	
+	
+	
+	lata <- lata*qtdCompraLata;
+	
+	garrafaP <- lata*qtdCompraLata;
+	
+	garrafaG <- lata*qtdCompraLata;
+	
+	qtdLitros <- lata + garrafaP + garrafaG;
+	
+	
+
+	Escreve('total comprado foi de :',quantidade,' litros' );
+	
+	
+FIM

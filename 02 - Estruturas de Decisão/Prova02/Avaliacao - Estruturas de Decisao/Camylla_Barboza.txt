@@ -1,0 +1,244 @@
+Program provaex1;
+
+const
+vlDesc30    = 0.65;     //valor do desconto
+vlDesc100   = 0.40;
+vlDesc220   = 0.10;
+vlDesc221   = 0.00;
+
+var
+vlConsEnergia     :integer;
+vlDesc            :real;
+vlKwh             :real;
+vlFatura          :real;
+vlDescFatura      :real;
+vlTotalLiqui      :real;
+
+
+begin
+    writeln ('Qual foi o seu consumo de sua fatura de energia ?');
+    readln(vlConsEnergia);
+
+    writeln ('Qual o valor de cada KWh de sua fatura de energia ?');
+    readln(vlKwh);
+
+
+    //PROCESSAMENTO
+
+
+    if(vlKwh <= 30)then
+	begin
+        vlDesc := vlDesc30;
+				vlFatura:= (vlConsEnergia*vlKwh) ;
+    		vlDescFatura:= (vlFatura* vlDesc);
+    		vlTotalLiqui:= (vlFatura-vlDescFatura);
+
+
+	end
+    else if((vlKwh > 30) and (vlKwh <=100) )then
+	begin
+       vlDesc := vlDesc100;
+			 vlFatura:= (vlConsEnergia*vlKwh) ;
+    	 vlDescFatura:= (vlFatura* vlDesc);
+    	 vlTotalLiqui:= (vlFatura-vlDescFatura);
+
+	end
+    else if((vlKwh > 100) and (vlKwh <=220) )then
+	begin
+        vlDesc := vlDesc220;
+				vlFatura:= (vlConsEnergia*vlKwh) ;
+    		vlDescFatura:= (vlFatura* vlDesc);
+    		vlTotalLiqui:= (vlFatura-vlDescFatura);
+	end
+    else if(vlKwh > 220 )then
+	begin
+				vlDesc := vlDesc221;
+        vlFatura:= (vlConsEnergia*vlKwh) ;
+    		vlDescFatura:= (vlFatura* vlDesc);
+    		vlTotalLiqui:= (vlFatura-vlDescFatura);
+
+        end;
+
+
+
+    writeln('Voce recebeu  ' ,vlDesc :0:2,' % que te gerou um desconto de  R$: ' ,vlDescFatura:0:2);
+    writeln('Valor total de sua Fatura eh     : R$: ',vlFatura:0:2);
+    writeln('Valor liquido da sua Fatura eh   : R$:' ,vlTotalLiqui:0:2);
+
+
+     writeln('Aperte enter para continuar ...');
+    readln ;
+end.
+_____________________________________________
+program Exe2;
+
+const
+//Com Cadastro
+vlAvistaS = 0.20;
+vlCarCS   = 0.15;
+vlParcS2  = 0.10;
+vlParcS3  = 0.05;
+//sem cadastro
+vlAvistaN = 0.15;
+vlCarCN   = 0.10;
+vlParcN2  = 0.05;
+vlParcN3  = 0.00;
+
+
+var
+dsCadastro    : integer;
+dsFormaPgto   : integer;
+vlDesconto1   : real;
+vlDesconto    : real;
+VlCompra      : real;
+vlLiqCompra   : real;
+begin
+	writeln('Voce eh cadastrado, digite Sim digite 1 ou Nao digite 2?!');
+	readln(dsCadastro);
+	writeln('Qual é a Forma de pagamento? A vista escolha 1 / Cartao de Credito escolha 2/ Parcelado em duas vezes escolha 3 ou Parcelado em tres vezes escolha 4?!');
+        readln(dsFormaPgto);
+        writeln('Qual o valor da Compra?!');
+	readln(vlCompra);
+
+    if (dsCadastro = 1 ) and (dsFormaPgto = 1) then
+	begin
+		vlDesconto := vlAvistaS;
+		vlDesconto1 := vlCompra * vlDesconto  ;
+	  vlLiqCompra := vlCompra - vlDesconto1;
+		end
+	else
+	if (dsCadastro = 1 ) and (dsFormaPgto = 2) then
+	begin
+		vlDesconto := vlCarCS;
+		vlDesconto1 := vlCompra * vlDesconto  ;
+	  vlLiqCompra := vlCompra - vlDesconto1;
+
+	end
+	else
+	if (dsCadastro = 1 ) and (dsFormaPgto = 3)then
+	begin
+		vlDesconto := vlParcS2;
+		vlDesconto1 := vlCompra * vlDesconto  ;
+	  vlLiqCompra := vlCompra - vlDesconto1;
+	end
+	else
+	if (dsCadastro = 1 ) and (dsFormaPgto = 4)then
+	begin
+		vlDesconto := vlParcS3;
+		vlDesconto1 := vlCompra * vlDesconto  ;
+	  vlLiqCompra := vlCompra - vlDesconto1;
+	end
+	else
+         if (dsCadastro = 2 ) and (dsFormaPgto = 1) then
+	begin
+		vlDesconto := vlAvistaN;
+		vlDesconto1 := vlCompra * vlDesconto  ;
+	  vlLiqCompra := vlCompra - vlDesconto1;
+	end
+	else
+	if (dsCadastro = 2 ) and (dsFormaPgto = 2) then
+	begin
+		vlDesconto := vlCarCN;
+		vlDesconto1 := vlCompra * vlDesconto  ;
+	  vlLiqCompra := vlCompra - vlDesconto1;
+	end
+	else
+	if (dsCadastro = 2 ) and (dsFormaPgto = 3)then
+	begin
+		vlDesconto := vlParcN2;
+		vlDesconto1 := vlCompra * vlDesconto  ;
+	  vlLiqCompra := vlCompra - vlDesconto1;
+	end
+	else
+	if (dsCadastro = 2 ) and (dsFormaPgto = 4)then
+	begin
+		vlDesconto := vlParcN3;
+		vlDesconto1 := vlCompra * vlDesconto  ;
+	  vlLiqCompra := vlCompra - vlDesconto1;
+	end;
+
+
+	writeln ('O Valor da Compra ', VlCompra :0:2);
+        writeln ('Desconto COncedido R$: ', vlDesconto1:0:2);
+        writeln ('O Valor  Total a Pagar', vlLiqCompra:0:2);
+
+        writeln('Digite [Enter] para encerrar...');
+	readln;
+end.
+_______________________________________________________
+Program provaex3;
+
+const
+sit1 = 'Reprovado por Frequencia';
+sit2 = 'Em Recuperacao, voce deve tirar acima de 10 na sua prova de Recuperacao';
+sit3 = 'Aprovado';
+
+var
+nmAluno           :String;
+nota1             :Integer;
+nota2             :Integer;
+nota3             :Integer;
+nota4             :Integer;
+nrFalta           :Integer;
+nrTotAulas        :Integer;
+mediaAula         :Integer;
+medAluno          :Integer;
+sitAluno          :String;
+
+begin
+    writeln ('Qual o seu Nome ?');
+    readln(nmAluno);
+
+    writeln ('Qual a sua primeira Nota ?');
+    readln(nota1);
+    writeln ('Qual a sua segunda Nota ?');
+    readln(nota2);
+    writeln ('Qual a sua terceira Nota ?');
+    readln(nota3);
+    writeln ('Qual a sua quarta Nota ?');
+    readln(nota4);
+    writeln ('Quantas Faltas ?');
+    readln(nrFalta);
+    writeln ('Quantas Aulas Ministradas ?');
+    readln(nrTotAulas);
+
+     medAluno:= ((nota1+nota2+nota3+nota3) mod 4);
+     mediaAula:=((nrTotAulas-nrFalta)*100);
+
+    if (mediaAula <= 25) then
+	begin
+        medAluno:= ((nota1+nota2+nota3+nota3) mod 4);
+        mediaAula:=((nrTotAulas-nrFalta)*100);
+        sitAluno := sit1;
+        writeln('Sua Media final eh : ', medAluno );
+        Writeln('Sua Situacao eh Reprovado por Frequencia' );
+
+	end
+    else if (mediaAula > 25) and (medAluno > 4) and (medAluno <6) then
+	begin
+        sitAluno := sit2;
+        medAluno:= ((nota1+nota2+nota3+nota3) mod 4);
+        mediaAula:=((nrTotAulas-nrFalta)*100);
+        writeln('Sua Media final eh : ', medAluno );
+        Writeln('Em Recuperacao, voce deve tirar acima de 10 na sua prova de Recuperacao' );
+
+	end
+    else if (mediaAula > 25) and (medAluno >= 6) then
+	begin
+        sitAluno := sit3;
+         medAluno:= ((nota1+nota2+nota3+nota3) mod 4);
+        mediaAula:=((nrTotAulas-nrFalta)*100);
+        writeln('Sua Media final eh : ', medAluno );
+        Writeln('Sua Situacao eh  Aprovado  :' );
+        end;
+
+
+    writeln('Boletim' , nmAluno);
+    writeln('Sua Media final eh : ', medAluno );
+    writeln('Sua Situacao eh    :' , sitAluno );
+
+
+     writeln('Aperte enter para continuar ...');
+    readln ;
+end.
+                                                                       

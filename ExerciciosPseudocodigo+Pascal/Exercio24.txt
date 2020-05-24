@@ -1,0 +1,31 @@
+Um tonel de refresco é feito com 8 partes de água mineral e 2 partes 
+de suco de maracujá. Faça um algoritmo para calcular quantos litros 
+de água e de suco são necessários para se fazer X litros de refresco 
+(informados pelo usuário).
+  
+  1 Tonel de x litros???
+  litros 136.00 
+  agua = 8 -> 80%
+  suco = 2 -> 20%
+  
+
+--------------------------------------------------------------------------
+programa Exercicio24;
+
+	var qtdLitros : real;
+	var qtdAgua : real;
+	var qtdSuco : real;
+
+INICIO
+
+	Escreve('Informe a quantidade de litros solicitados pelo cliente:');
+	leia(qtdLitros);	
+
+	qtdAgua <- qtdLitros * 0.80;
+	
+	qtdSuco <- qtdLitros * 0.20;
+	
+	ESCREVA('Para fabricar ',qtdLitros,' sera necessario ',qtdAgua,'litros de agua e ',qtdSuco,'litros de suco');
+	
+
+FIM

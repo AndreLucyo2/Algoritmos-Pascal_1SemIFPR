@@ -1,0 +1,164 @@
+Exercicio 1
+
+program project1;
+var
+  consEnergia, precoKWh, valorSdesconto, valorCdesconto,
+    desconto, valorDesconto,valor1 : real;
+begin
+  writeln('Informe o consumo de energia em KWh');
+  readln(consEnergia);
+  writeln('Informe o valor de cada KWh');
+  readln(precoKWh);
+  writeln('Informe o valor do percentual de desconto');
+  readln(desconto);
+  valorSdesconto:=consEnergia*precoKWh;
+  valor1:=valorSdesconto*desconto;
+  valorDesconto:=valor1/100;
+  valorCdesconto:=valorSdesconto-valorDesconto;
+  writeln('O valor da fatura sem descontos eh de: R$:', valorSdesconto:2:2);
+  writeln;
+  writeln('O percentual descontado eh de ', desconto:0:0,'%');
+  writeln;
+  writeln('O valor descontado eh de: R$:', valorDesconto:2:2);
+  writeln;
+  writeln('O valor da fatura com os descontos eh de: R$:', valorCdesconto:2:2);
+  writeln; 
+  readln;
+end.
+
+Exercicio 2
+program exercicio2;
+uses
+ crt;
+var
+  ClienteCadastrado, ClienteNcadastrado, sn, Tpagamento : string;
+  valorCompra, VlrDesconto : real;
+begin
+  begin
+  writeln('Informe o Valor da compra :');
+  readln(valorCompra);
+  writeln;
+  writeln('Cliente Cadastrador');
+  writeln(' s = Sim');
+  writeln(' n = Nao');
+  readln(sn);
+  end;
+  begin
+  if sn for s then
+  writeln(' O pagamento sera no: ');
+  writeln('Dinheiro ou Cheque, entao digite "cd"');
+  writeln('Cartao de Credito a Vista, entao digite "ca"');
+  writeln('Cartao de Credito em 2 Vezes, entao digite "cb"');
+  writeln('Cartao de Credito em 3 Vezes, entao digite "cc"');
+  readln(Tpagamento);
+
+  end;
+end.           
+
+
+Exercicio 3
+program exercicio3;
+var
+    DiasFaltas : integer;
+    nota1, nota2, nota3, nota4, media : real;
+
+begin
+  begin
+  writeln('O ano Letivo tem 200 dias de aulas');
+  writeln('Informe a quantidade de faltas');
+  readln(DiasFaltas);
+  end;
+
+  if DiasFaltas >50 then
+
+  begin
+  writeln('Voce esta REPROVADO por faltas sem direito a recuperacao.');
+  readln;
+  end;
+
+  if DiasFaltas <50 then
+  begin
+
+       begin
+       writeln('Informe a primera nota');
+       readln(nota1);
+       writeln('Informe a segunda nota');
+       readln(nota2);
+       writeln('Informe a terceira nota');
+       readln(nota3);
+       writeln('Informe a quarta nota');
+       readln(nota4);
+       media:=(nota1+nota2+nota3+nota4)/6;
+       end;
+      begin
+      if media >6.0 then
+      write('Parabens voce esta APROVADO');
+      end;
+
+      begin
+      if media <6 and media >=4 then
+      writeln('Voce tem direito a recuperacao');
+      end;
+
+      begin
+      if media <=5 then
+      write('Infelizmente voce esta REPROVADO');
+      end;
+  end;
+  readln;
+  end.
+
+Exercicio 4
+Program exercicio4;
+Uses crt;
+
+	Var AC					: Boolean;
+	Var DC					: Boolean;
+	Var vlAno				: Integer;
+	Var vlEra				: String;
+	Var nomeEra			: String;
+	Var perHist			: String;
+
+Begin
+	Writeln('Bem vindo(a), por favor, informe o ano desejado');
+	Readln(vlAno);
+	Writeln('Agora, informe a epoca (ac/dc)');
+	Readln(vlEra);
+	AC := (lowerCase(vlEra) = 'ac');
+	DC := (lowerCase(vlEra) = 'dc');
+
+	if (vlAno <= 4000) and AC Then
+		Begin
+			nomeEra := Concat('Pré-História');
+			perHist := Concat('Período Pré-historico');
+		End
+	else if (vlAno > 4000) and AC And (vlAno <= 476)  Then
+		Begin
+			nomeEra := Concat('Idade Antiga');
+			perHist := Concat('Periodo Histórico');
+		End
+		else if (vlAno > 476) and DC And (vlAno <= 1453) Then
+		Begin
+			nomeEra := Concat('Idade Media');
+			perHist := Concat('Periodo Histórico');
+		End
+		else if (vlAno > 1453) and DC And (vlAno <= 1789) Then
+		Begin
+			nomeEra := Concat('Idade Moderna');
+			perHist := Concat('Periodo Histórico');
+		End
+		else if (vlAno > 1789) and DC Then
+		Begin
+			nomeEra := Concat('Idade Contemporanea');
+			perHist := Concat('Periodo Histórico');
+		End;
+	
+		Writeln('Periodo Histórico..:',perHist);
+		Writeln('Idade..............:',nomeEra);
+		ReadKey;
+End.
+          
+
+
+
+                                              

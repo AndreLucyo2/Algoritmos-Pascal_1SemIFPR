@@ -1,0 +1,46 @@
+A granja Frangotech possui um controle automatizado de cada frango 
+da sua produ‡ao. No p‚ direito do frango h  um anel com um chip de 
+identifica‡ao; no p‚ esquerdo sao dois an‚is para indicar o tipo de 
+alimento que ele deve consumir. Sabendo que o anel com chip 
+custa R$4,00 e o anel de alimento custa R$3,50, fa‡a um algoritmo 
+para calcular o gasto total da granja para marcar todos os seus frangos.
+
+ custo anel com chip = 4.00
+ custo anel alimento = 3.50
+ 
+
+ 1X anel chip /frango
+ 2X anel chip /frango
+
+------------------------------------------------------------------
+
+programa Exercicio14;
+
+	var qtdFrangos : inteiro;
+	var vlAnelChip : real;
+	var vlAnelAliment : real;
+	
+	var vlTotAnelChip : real;
+	var vlTotAnelAliment : real;
+	
+	var vlTotalGasto : real;
+		
+
+INICIO
+	vlAnelChip    <- 4.00;	
+	vlAnelAliment <- 3.50;
+		
+
+	Escreve('Informa a quantidade de frangos:');
+	leia(qtdFrangos);	
+		
+		
+	vlTotAnelChip    <- qtdFrangos * 1 * vlAnelChip;	
+	vltotAnelAliment <- qtdFrangos * 2 * vlAnelAliment;
+		
+	vlTotalGasto <- vlTotAnelChip + vltotAnelAliment;
+	
+
+	Escreve('Em uma granja com : ',qtdFrangos,' sera gasto um total de R$',vlTotalGasto, 'no controle');
+	
+FIM

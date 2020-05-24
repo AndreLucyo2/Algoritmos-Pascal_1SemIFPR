@@ -1,0 +1,21 @@
+Faça um algoritmo para calcular quantas ferraduras 
+são necessárias para equipar todos os
+cavalos comprados para um haras.
+
+------------------------------------------------------------------
+programa Exercicio2;
+
+	var qtdCavalos: inteiro;	
+	var qtdFerraduras: inteiro;
+	
+INICIO
+
+	Escreve('Digite o total de cavalos:');
+	leia(qtdCavalos);
+	
+	qtdFerraduras <- qtdCavalos * 4 ;
+	
+    Escreve('o Total de ferraduras para o numero de cavalos é :', qtdFerraduras);
+
+
+FIM

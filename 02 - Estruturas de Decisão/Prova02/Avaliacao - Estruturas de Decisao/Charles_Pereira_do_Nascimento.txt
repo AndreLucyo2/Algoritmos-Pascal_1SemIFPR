@@ -1,0 +1,193 @@
+Program Prova_quest_01;
+//Tarifa Social de Energia Eletrica
+Uses crt, sysutils;
+
+Const
+  descont30 = 0.65;
+  descont30a100 = 0.40;
+  descont100a220 = 0.10;
+  desconta220 = 0;
+Var
+  consEnergia, precoKWh, totPrecoKWh, valoReDescont, totFatura : Real;
+  dsPercentual : String;
+Begin
+  Writeln('Digite a quantidade consumida de energia:');
+  Readln(consEnergia);
+  Writeln('Digite o preco de cada KWh:');
+  Readln(precoKWh);
+  totPrecoKWh := (consEnergia * precoKWh);
+  If (consEnergia <= 30 ) Then
+    Begin
+      valoReDescont := (totPrecoKWh * descont30);
+      dsPercentual := '65%';
+    End
+  Else If ((consEnergia >= 30 ) And (consEnergia <= 100 ) ) Then
+         Begin
+           valoReDescont := (totPrecoKWh * descont30a100);
+           dsPercentual := '40%';
+         End
+  Else If ((consEnergia >= 100 ) And (consEnergia <= 220 ) ) Then
+         Begin
+           valoReDescont := (totPrecoKWh * descont100a220);
+           dsPercentual := '10%';
+         End
+  Else If (consEnergia > 220 ) Then
+         Begin
+           valoReDescont := (totPrecoKWh * desconta220);
+           dsPercentual := '0%';
+         End;
+  totFatura := (totPrecoKWh - valoReDescont);
+  Writeln('Valor total da Fatura sem desconto:', totPrecoKWh :2:2, ' Valor Percentual do Desconto:',
+          dsPercentual, ' Valor do desconto em Reais:', valoReDescont :2:2,
+          ' Valor Final da Fatura: ',
+          totFatura :2:2);
+  Writeln('Pressione [ENTER] para encerrar...');
+  Readln;
+End.
+
+============================================================
+
+Program Prova_quest_02;
+//Condicoes de Pagamento
+Uses crt, sysutils;
+
+Const
+  descaVistaCheque = 0.20;
+  //cliente com cadastro
+  descaaVistaCartao = 0.15;
+  //cliente com cadastro
+  descParcel2x = 0.10;
+  //cliente com cadastro
+  descParcel3x = 0.05;
+  //cliente com cadastro
+  descaVistaChequeS = 0.15;
+  //cliente sem cadastro
+  descaaVistaCartaoS = 0.10;
+  //cliente sem cadastro
+  descParcel2xS = 0.05;
+  //cliente sem cadastro
+  descParcel3xS = 0;
+  //cliente sem cadastro
+Var
+  valorCompra, valorDescont, valorTotal, vlforma : Real;
+  clienteCadastro, clienteSemCadastro: Boolean;
+  vlOpcao : String;
+Begin
+  Writeln('Qual o valor da compra?');
+  Readln(valorCompra);
+  Writeln('Voce eh um cliente cadastrado(s/n)?');
+  Readln(vlOpcao);
+  clienteCadastro := (lowerCase(vlOpcao) = 's');
+  clienteSemCadastro := (lowerCase(vlOpcao) = 'n');
+  If (clienteCadastro) Then
+    Writeln('Qual eh a forma de pagamento: A vista ou cheque (1), A vista cartao (2), Parcelado 2X (3), Parcelado 3X (4)?');
+    Readln(vlforma);
+  Begin
+    If (vlforma = 1) Then
+      valorDescont := (valorCompra * descaVistaCheque);
+    If (vlforma = 2) Then
+      valorDescont := (valorCompra * descaaVistaCartao);
+    If (vlforma = 3) Then
+      valorDescont := (valorCompra * descParcel2x);
+    If (vlforma = 4) Then
+      valorDescont := (valorCompra * descParcel3x);
+  End;
+  Else if  (clienteSemCadastro) Then
+    Writeln('Qual eh a forma de pagamento: A vista ou cheque (1), A vista cartao (2), Parcelado 2X (3), Parcelado 3X (4)?')
+    Readln(vlforma);
+  Begin
+    If (vlforma = 1) Then
+      valorDescont := (valorCompra * descaVistaChequeS);
+    If (vlforma = 2) Then
+      valorDescont := (valorCompra * descaaVistaCartaoS);
+    If (vlforma = 3) Then
+      valorDescont := (valorCompra * descParcel2xS);
+    If (vlforma = 4) Then
+      valorDescont := (valorCompra * descParcel3xS);
+  End;
+  
+    
+    valorTotal := (valorCompra - valorDescont);
+		
+    Writeln('Valor da compra:', valorCompra :2:2,
+            ' Valor do Desconto:',
+            valorDescont, ' Valor Final: ',
+            valorTotal :2:2);
+    Writeln('Pressione [ENTER] para encerrar...');
+    Readln;
+  End.
+
+==================================================================
+
+Program Prova_quest_03;
+//Notas de um aluno
+Uses crt, sysutils;
+
+	Const limiteFalta = 0.25; //25% de tolerância
+	Const media 			= 6;
+
+	Var notaB1 				: Real;
+	Var notaB2				: Real;
+	Var notaB3				: Real;
+	Var notaB4				: Real;
+	Var faltas 				: Integer;
+	Var totAulas			: Integer;
+
+Begin
+		
+	Writeln('Insira a nota do primeiro bimestre:');
+		Readln(notaB1);
+		WriteLn('Insira a nota do segundo bimestre:');
+		Readln(notaB2);
+		WriteLn('Insira a nota do terceiro bimestre:');
+		Readln(notaB3);
+		WriteLn('Insira a nota do quarto bimestre:');
+		Readln(notaB4);
+		Writeln('Entre com o numero de faltas:');
+		Readln(faltas);
+		Writeln('Qual a quantidade total de aulas:');
+		Readln(totAulas);
+		Writeln('Processando...');
+	
+	if ((notaB1 + notaB2 + notaB3 + NotaB4) / 4 < media) then
+	  begin
+		Writeln('O aluno esta reprovado por média!');
+		WriteLn('Sua média final foi de ',(notaB1 + notaB2 + notaB3 + NotaB4) / 4:0:0, ', o mínimo para passar de ano é ',media,'! Voce esta em Recuperacao!');
+		end
+	else if (faltas > limiteFalta) Then
+	  begin
+		Writeln('O aluno esta reprovado por faltas!');
+				end
+	else
+		Writeln('O aluno está aprovado!');
+	Readln;
+End.
+
+
+==============================================================
+
+Program Prova_quest_04;
+//Divisao dos Periodos da Historia
+uses sysUtils;
+var
+  vlAno : integer;
+  dsEra : string;
+	AC, DC: Boolean; 
+	
+begin
+
+writeln('Entre com o ano');
+readln(vlAno);
+writeln('Entre com a Era: (AC) ou (DC)');
+readln(dsEra);
+AC := (upperCase(vlOpcao) = 'AC');
+DC := (upperCase(vlOpcao) = 'DC');
+If (AC) Then
+vlAno >= 4000
+writeln('Periodo da Pre-Historia');
+
+//Infelizmente não consegui nem começar....
+
+writeln('Digite [Enter] para encerrar...');
+readln;
+end.

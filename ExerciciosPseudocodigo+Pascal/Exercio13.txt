@@ -1,0 +1,46 @@
+Ler um número inteiro (assuma até três dígitos) 
+e imprimir a saída da seguinte forma:
+CENTENA = x
+DEZENA = x
+UNIDADE = x
+
+	numero/100;
+	
+	numero/10;
+	
+	numero/1;
+
+------------------------------------------------------------------
+programa Exercicio13;
+
+	var numero : real;
+	var centenas : real;
+	var dezenas : real;
+	var unidades : real;	
+
+	
+INICIO
+
+	Escreve('Informe um numero:');
+	leia(numero);
+	
+	
+	
+	centenas <- (numero/100) 3:0;
+	
+	dezenas <- (numero/10) 3:0;
+	
+	unidades <- (numero/1) 3:0;
+	
+	
+
+	Escreve('numero informado :', numero);
+	
+	Escreve('centenas :', centenas);
+	
+	Escreve('dezenas :', dezenas);
+	
+	Escreve('unidades :', unidades);	
+	
+	
+FIM

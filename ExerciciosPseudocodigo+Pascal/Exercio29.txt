@@ -1,0 +1,33 @@
+Faça um algoritmo que receba o preço de um produto, 
+calcule e mostre o novo preço,
+sabendo-se que este sofreu um desconto de 10%.
+
+preçoIni = ?
+deconto de 10% = (preçoIni*10)/100
+ 
+
+------------------------------------------------------------------
+programa Exercicio12;
+
+	var preçoIni : real;
+	var valDesconto : real;     
+	var preçoFin : real;
+
+INICIO
+
+	Escreve('Informe preço do produto :');
+	leia(preçoIni);
+	
+	valDesconto <- ((preçoIni * 10)/100);
+	
+	//Forma A:
+	preçoFin <- preçoIni - ((preçoIni*10)/100);
+	
+	
+	//Forma B:
+	preçoFin <- preçoIni * 0.10;
+
+
+	Escreve('O salario inicial é de ', preçoFin);
+	
+FIM

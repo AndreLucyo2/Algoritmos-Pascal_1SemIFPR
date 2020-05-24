@@ -1,0 +1,57 @@
+A empresa Hipotheticus paga R$10,00 por hora normal trabalhada, 
+e R$15,00 por hora extra. Faça um algoritmo para calcular e imprimir 
+o salário bruto e o salário líquido de um determinado funcionário. 
+Considere que o salário líquido é igual ao salário bruto descontando-se 
+10% de impostos.
+
+	hora normal = 10.00
+	hora extra  = 15.00
+	
+	220 horas normais
+	30  horas extra
+	10% de desconto
+	---------------
+	Salario liquido?
+
+------------------------------------------------------------------
+
+programa Exercicio14;
+
+	var qtdHoraNormal : real;
+	var qtdHoraExtra : real;
+	var valHoraNormal : real;
+	var valHoraExtra : real;	
+	var valTotHoraNormal : real;
+	var valTotHoraExtra : real;
+	
+	var impostos : real;
+	var salarioBruto: real;
+	var salarioLiquido:real;
+
+INICIO
+
+	valHoraNormal <- 10.00;
+	valHoraExtra  <- 15.00;
+	
+	impostos <- 10;
+    impostos <- (1 - impostos /100);
+
+	Escreve('Informe a quantidade de horaras normais trabalhada :');
+	leia(qtdHoraNormal);
+
+	Escreve('Informe a quantidade de horaras extras trabalhada :');
+	leia(qtdHoraExtra);	
+		
+	
+	valTotHoraNormal <- qtdHoraNormal * valHoraNormal;
+	valTotHoraExtra  <- qtdHoraExtra * valHoraExtra;
+
+	salarioBruto <- valTotHoraNormal + valTotHoraExtra;	
+	salarioLiquido <- salarioBruto * impostos;	
+	
+	
+
+	Escreve('Valor do salario Bruto : ',salarioBruto );
+	Escreve('Valor do salario liquido : ',salarioLiquido );
+	
+FIM

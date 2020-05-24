@@ -1,0 +1,239 @@
+*************************************************************************************
+Program provaEx1;
+Uses crt;
+//-----------------------------------------------------------------------------
+	Var consumoCliente : Integer;
+	Var precoEnergia   : Real;
+	Var resultado			 : Real;
+	Var desconto			 : Integer;
+//-----------------------------------------------------------------------------
+Begin
+	Writeln('Bem vindo(a), por favor, digite o consumo de energia do cliente:');
+	Readln(consumoCliente);
+	Writeln('Agora, digite o preco da energia:');
+	Readln(precoEnergia);
+//-----------------------------------------------------------------------------
+	if (consumoCliente <= 30) Then
+	Begin
+		desconto := 65;
+		resultado := (consumoCliente * precoEnergia) - (consumoCliente * 0.65);
+	End
+	else if (consumoCliente > 30) and (consumoCliente <= 100) Then
+	Begin
+		desconto := 40;
+		resultado := (consumoCliente * precoEnergia) - (consumoCliente * 0.40);
+	End
+	else if (consumoCliente > 100) and (consumoCliente <= 220) Then
+	Begin
+		desconto := 10;
+		resultado := (consumoCliente * precoEnergia) - (consumoCliente * 0.10);
+	End
+	else
+		desconto := 0;
+		resultado := (consumoCliente * precoEnergia);
+//-----------------------------------------------------------------------------
+	Writeln('Sua tabela de custos:');
+	Writeln('Fatura sem desconto........R$',(consumoCliente * precoEnergia):0:2);
+	Writeln('Percentual de desconto.......', desconto,'%');
+	Writeln('Valor do desconto..........R$', (resultado * desconto) / 100:0:2);
+	Writeln('Valor final................R$', resultado - ((resultado * desconto) / 100):0:2);
+	ReadKey;
+End.
+*************************************************************************************
+Program ex2;
+Uses crt;
+//-----------------------------------------------------------------------------
+	Var vlCompra				   : Real;
+	Var vlCompraSDesc      : Real;
+	Var clienteCadastrado	 : Boolean;
+	Var clienteSemcadastro : Boolean;
+	Var formaPagA	  			 : Boolean;
+	Var formaPagB  			   : Boolean;
+	Var formaPagC  			   : Boolean;
+	Var formaPagD	  			 : Boolean;
+	Var escolhaClienteCad  : String;
+	Var escolhaClientePag	 : String;
+	Var clienteCadMsg			 : String;
+	Var clientePagMsg      : String;
+	//-----------------------------------------------------------------------------
+Begin
+	Writeln('Bem vindo(a), você possui cadastro na loja(S/N)?');
+	Readln(escolhaClienteCad);
+	clienteCadastrado := (lowerCase(escolhaClienteCad) = 's');
+	clienteSemcadastro := (lowerCase(escolhaClienteCad) = 'n');
+	Writeln('Insira o valor de sua compra');
+	Readln(vlCompraSDesc);
+	Writeln('Aqui estão suas opções de pagamento:');
+	Writeln('A vista em dinheiro ou cheque.(A)');
+	Writeln('A vista no cartão de crédito..(B)');
+	Writeln('Parcelado duas vezes..........(C)');
+	Writeln('Parcelado tres vezes..........(D)');
+	Writeln('Informe a forma de pagamento desejada');
+	readln(escolhaClientePag);
+	formaPagA := (lowerCase(escolhaClientePag) = 'a');
+	formaPagB := (lowerCase(escolhaClientePag) = 'b');
+	formaPagC := (lowerCase(escolhaClientePag) = 'c');
+	formaPagD := (lowerCase(escolhaClientePag) = 'd');
+//-----------------------------------------------------------------------------
+	If (clienteCadastrado) and (formaPagA) Then
+		Begin
+			vlCompra := (vlCompraSDesc - (vlCompraSDesc * 0.20));
+			clienteCadMsg := concat('Sim');
+			ClientePagMsg := concat('A vista em dinheiro ou cheque');
+		End
+	else if (clienteCadastrado) and (formaPagB) Then
+		Begin
+			vlCompra := (vlCompraSDesc - (vlCompraSDesc * 0.15));
+			clienteCadMsg := concat('Sim');
+			ClientePagMsg := concat('A vista no cartão de crédito');
+		End
+	else if (clienteCadastrado) and (formaPagC) Then
+		Begin
+			vlCompra := (vlCompraSDesc - (vlCompraSDesc * 0.10));
+			clienteCadMsg := concat('Sim');
+			ClientePagMsg := concat('Parcelado duas vezes');
+		End
+	else if (clienteCadastrado) and (formaPagD) Then
+		Begin
+			vlCompra := (vlCompraSDesc - (vlCompraSDesc * 0.05));
+			clienteCadMsg := concat('Sim');
+			ClientePagMsg := concat('Parcelado tres vezes');
+		End
+	else if (clienteSemcadastro) and (formaPagA) Then
+		Begin
+			vlCompra := (vlCompraSDesc - (vlCompraSDesc * 0.15));
+			clienteCadMsg := concat('Nao');
+			ClientePagMsg := concat('A vista em dinheiro ou cheque');
+		End
+	else if (clienteSemcadastro) and (formaPagB) Then
+		Begin
+			vlCompra := (vlCompraSDesc - (vlCompraSDesc * 0.10));
+			clienteCadMsg := concat('Nao');
+			ClientePagMsg := concat('A vista no cartão de crédito');
+		End
+	else if (clienteSemcadastro) and (formaPagC) Then
+		Begin
+			vlCompra := (vlCompraSDesc - (vlCompraSDesc * 0.05));
+			clienteCadMsg := concat('Nao');
+			ClientePagMsg := concat('Parcelado duas vezes');
+		End
+	else if (clienteSemcadastro) and (formaPagD) Then
+		Begin
+			vlCompra := vlCompraSDesc;
+			clienteCadMsg := concat('Nao');
+			ClientePagMsg := concat('Parcelado tres vezes');
+		End;
+	
+//-----------------------------------------------------------------------------
+	Writeln('Sua tabela de custos;');
+	Writeln('Cliente possui cadastro.....', clienteCadMsg);
+	Writeln('Valor da compra.............', vlCompraSDesc:0:2);
+	Writeln('Forma de pagamento..........', clientePagMsg);
+	Writeln('Valor desconto..............',vlCompraSDesc - vlCompra:0:2);
+	Writeln('Valor final.................',vlCompra:0:2);
+	ReadKey;
+End.
+*********************************************************************************************************
+Program provaEx3;
+Uses crt;
+//-----------------------------------------------------------------------------
+	Const limiteFalta = 0.25; {25% de tolerância}
+	Const media 			= 6;
+	Const Rec					= 4;
+//-----------------------------------------------------------------------------
+	Var notaB1 				: Real;
+	Var notaB2				: Real;
+	Var notaB3				: Real;
+	Var notaB4				: Real;
+	Var faltas 				: Integer;
+	Var totAulas			: Integer;
+//-----------------------------------------------------------------------------
+Begin
+	Writeln('Bem vindo(a), por favor, insira a nota do primeiro bimestre:');
+	Readln(notaB1);
+	WriteLn('Insira a nota do segundo bimestre:');
+	Readln(notaB2);
+	WriteLn('Insira a nota do terceiro bimestre:');
+	Readln(notaB3);
+	WriteLn('Insira a nota do quarto bimestre:');
+	Readln(notaB4);
+	Writeln('Entre com o numero de faltas:');
+	Readln(faltas);
+	Writeln('Quase lá, falta apenas o dizer a quantidade total de aulas:');
+	Readln(totAulas);
+//-----------------------------------------------------------------------------
+	if ((notaB1 + notaB2 + notaB3 + NotaB4) / 4) < Rec then
+	  Begin
+			Writeln('O aluno esta reprovado por média!');
+			WriteLn('Sua média final foi de ',(notaB1 + notaB2 + notaB3 + NotaB4) / 4:0:0, ', o mínimo para passar de ano é ',media,'!');
+		End
+	else if (faltas > (totAulas * limiteFalta)) Then
+	  Begin
+			Writeln('O aluno esta reprovado por Frequencia!');
+			WriteLn('Você ultrapassou o limite em ',faltas - (totAulas * limiteFalta):0:0,' faltas!');
+		End
+	else if  ((notaB1 + notaB2 + notaB3 + notaB4) / 4) >= 5 then
+		Begin
+			Writeln('O aluno está de recuperação!');
+			Writeln('é necessario tirar:', 10 - ((notaB1 + notaB2 + notaB3 + notaB4)/4):0:0,' na prova final!');
+		End
+	else if ((notaB1 + notaB2 + notaB3 + NotaB4) / 4 >= media)  Then
+		Begin
+			Writeln('O aluno esta aprovado!');
+		End;
+	ReadKey;
+End.
+**************************************************************************************************************************************
+Program provaEx4;
+Uses crt;
+//-----------------------------------------------------------------------------
+	Var AC					: Boolean;
+	Var DC					: Boolean;
+	Var vlAno				: Integer;
+	Var vlEra				: String;
+	Var nomeEra			: String;
+	Var perHist			: String;
+//-----------------------------------------------------------------------------
+Begin
+	Writeln('Bem vindo(a), por favor, informe o ano desejado');
+	Readln(vlAno);
+	Writeln('Agora, informe a epoca (ac/dc)');
+	Readln(vlEra);
+	AC := (lowerCase(vlEra) = 'ac');
+	DC := (lowerCase(vlEra) = 'dc');
+//-----------------------------------------------------------------------------
+	if (vlAno <= 4000) and AC Then
+		Begin
+			nomeEra := Concat('Pré-História');
+			perHist := Concat('Período Pré-historico');
+		End
+	else if (vlAno > 4000) and AC And (vlAno <= 476)  Then
+		Begin
+			nomeEra := Concat('Idade Antiga');
+			perHist := Concat('Periodo Histórico');
+		End
+		else if (vlAno > 476) and DC And (vlAno <= 1453) Then
+		Begin
+			nomeEra := Concat('Idade Media');
+			perHist := Concat('Periodo Histórico');
+		End
+		else if (vlAno > 1453) and DC And (vlAno <= 1789) Then
+		Begin
+			nomeEra := Concat('Idade Moderna');
+			perHist := Concat('Periodo Histórico');
+		End
+		else if (vlAno > 1789) and DC Then
+		Begin
+			nomeEra := Concat('Idade Contemporanea');
+			perHist := Concat('Periodo Histórico');
+		End;
+//-----------------------------------------------------------------------------		
+		Writeln('Periodo Histórico..:',perHist);
+		Writeln('Idade..............:',nomeEra);
+		ReadKey;
+End.
+	
+	
+	
+
+

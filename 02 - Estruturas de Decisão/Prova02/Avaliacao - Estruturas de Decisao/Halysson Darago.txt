@@ -1,0 +1,256 @@
+Program Ex01;
+							Var descontoPer : real;
+							Var consumo,vlTot,precoKwh,vlDesconto,vlTotS : real;
+Begin
+		 precoKwh := 10;
+		 Writeln('Quantos de energia o usuario consumiu ? ');
+		 Readln(consumo);
+		 Writeln('O preco de cada KWh eh de : ');
+		 Readln(precoKwh);
+		  vlTot := consumo * precoKwh;
+			if vlTot <= 30 then
+			 begin
+			  descontoPer := 65 - 100;
+			 end
+			else if consumo <= 30 then
+				begin
+					vlDesconto := vlTot - (precoKwh * (65/100));         //                SalFinal := Aumento - (Aumento*(8/100));
+				end
+			else if (consumo > 30) and (consumo <= 100) then
+				begin
+					vlDesconto := vlTot - (precoKwh * (40/100));
+				end
+			else if (consumo > 100) and (consumo <= 220) then         //preco do veiculo + percentagem = 100 *(1 + 0.2) = 120
+				begin
+					vlDesconto := vlTot - (precoKwh * (10/100));
+				end
+			else if consumo > 220 then
+				begin
+					vlDesconto := vlTot;
+				end;
+			vlTotS := vlTot - vlDesconto;
+
+
+		 Writeln('O valor Total da fatura eh de R$',vlTot:0:2);
+		 Writeln('O valor percentual do descoto eh de :',descontoPer:0:2);
+		 Writeln('O valor do desconto em reais eh de R$',vlDesconto:0:2);
+		 Writeln('O valor final da fatura eh de R$',vlTotS:0:2);
+		 Readln;
+
+
+
+
+
+END.
+
+
+
+Program Ex02;
+						Var cliente,formaPag,dsCliente : string;
+						Var vlCompra,desconto,vlFinal : real;
+Begin
+			Writeln('O cliente tem cadastro {1} para sim e {2} para nao ?');
+		 Readln(cliente);
+		 		if (cliente = 1) then
+					begin
+						dsCliente := 'Cadastrado';
+						vlcompra - desconto;
+					end
+			 else if (cliente = 2) then
+			 		begin
+						dsCliente := 'Nao Cadastrado';
+						vlCompra - descont2;
+					end
+
+		 Writeln('O valor da compra e de R$',vlCompra);
+		 Readln(vlCompra);
+		 Writeln('Escolha uma das formas de pagameto a seguir para clientes com cadastro: {1} para a vista em dinheiro ou cheque ');
+		 Writeln('{2} para a vista no cartao de credito, {3} para Parcelado em duas vezes {4} para parcelado em 3 vezes ');
+		 writeln('Para clientes sem cadastros escolha uma das opcoes a seguir {5} para a vista em dinheiro ou cheque ');
+		 Writeln('{6} para a vista no cartao de credito, {7} para Parcelado em duas vezes {8} para parcelado em 3 vezes ');
+		 Readln(formaPag);
+			 if (formaPag = 1) then
+			  begin
+						desconto := 20;
+					end
+			 else if (formaPag = 2) then
+					begin
+						desconto := 15;
+					end
+			 else if (formaPag = 3) then
+					begin
+						desconto := 10;
+					end
+			 else if (formaPag = 4) then
+					begin
+						desconto := 5;
+					end;
+			if (formaPag = 5) then
+			  begin
+						desconto := 15;
+					end
+			 else if (formaPag = 6) then
+					begin
+						desconto := 10;
+					end
+			 else if (formaPag = 7) then
+					begin
+						desconto := 5;
+					end
+			 else if (formaPag = 8) then
+					begin
+						desconto := 0;
+					end;
+			 if (cliente = 1) and (formaPag = 1) then
+			 		begin
+						vlFinal := vlCompra - (vlCompra*20/100);
+					end
+			 else if (cliente = 2) and (formaPag = 5) then
+			 		begin
+						vlFinal := vlCompra - (vlCompra*15/100);
+					end
+			 else if (cliente = 1) and (formaPag = 2) then
+			 		begin
+						vlFinal := vlCompra - (vlCompra*15/100);
+					end
+			 else if (cliente = 2) and (formaPag = 6) then
+			 		begin
+						vlFinal := vlCompra - (vlCompra*10/100);
+					end
+			 else if (cliente = 1) and (formaPag = 3) then
+			 		begin
+						vlFinal := vlCompra - (vlCompra*10/100);
+					end
+			 else if (cliente = 2) and (formaPag = 7) then
+			 		begin
+						vlFinal := vlCompra - (vlCompra*5/100);
+					end
+			 else if (cliente = 1) and (formaPag = 4) then
+			 		begin
+						vlFinal := vlCompra - (vlCompra*5/100);
+					end
+			 else if (cliente = 2) and (formaPag = 8) then
+			 		begin
+						vlFinal := vlCompra;
+					end;
+
+		 Writeln('O cliente eh :',dsCliente);
+		 Writeln('O valor da comra e de R$',vlCompra:0:2);
+		 Writeln('O valor do desconto foi de R$',desconto:0:2);
+		 Writeln('O valor Final e de R$',vlFinal:0:2);
+
+
+
+
+
+END.
+
+
+
+
+Program Ex03;
+
+						Var nome,situacao : String;
+						Var nota1,nota2,nota3,nota4,media,notaminima : real;
+						Var numeroFaltas,totaula : integer;
+Begin
+		 writeln('Informe o nome do aluno : ');
+		 readln(nome);
+		 writeln('Quantos dias esse aluno faltou ?');
+		 readln(numeroFaltas);
+		 writeln('O numero de dias de aulas foi de ?');
+		 readln(totaula);
+		 writeln('Informe a primeira nota : ');
+		 readln(nota1);
+		 writeln('Informe a segunda nota : ');
+		 readln(nota2);
+		 writeln('Informe a terceira nota : ');
+		 readln(nota3);
+		 writeln('Informe a quarta nota : ');
+		 readln(nota4);
+
+		 media := (nota1 + nota2 + nota3 + nota4) / 4;
+
+			if numeroFaltas > (totaula - (numeroFaltas*25/100)) then
+				begin
+					situacao := 'Reprovado por falta';
+				end
+			else if media >= 60 then
+				begin
+					situacao := 'Aprovado';
+				end
+			else if (media > 39) and (media < 60) then
+				begin
+					situacao := 'Em Recuperacao';
+					notaminima := media - 10;
+					writeln('A nota minima que o aluno devera tirar sera de : ',notaminima:0:0);
+					readln;
+				end
+			else if media <= 40 then
+				Begin
+					situacao := 'Reprovado por Media';
+				end;
+
+
+		 writeln('A media do aluno foi de : ',media:0:0);
+		 writeln('A situacao do aluno eh : ',situacao);
+
+		 readln;
+
+
+
+
+END.
+
+
+Program ex04;
+
+						Var periodo : String;
+						Var ano,era : real;
+begin
+		 writeln('Informe um ano se for antes de cristo use menos por exemplo -1000 AC ');
+		 readln(ano);
+		 writeln('Informe a era ');
+		 readln(era);
+
+			if (ano >= -300.000) and (era < -4000) then
+				begin
+					periodo := 'Pre-Historico';
+					era := 'idadeAntiga';
+				end
+			else if (ano >= -4000) and (ano < -300.000) then
+				begin
+					periodo := 'PeriodoHistorico';
+				end
+			else if (era <= -4000) and (era <= 476) then
+				begin
+					era := 'IdadeAntiga';
+				end
+			else if (ano >= 476) and (ano < 1453) then
+				begin
+					periodo := 'PeriodoHistorico';
+				end
+			else if (era >= 476) and (era < 1453) then
+				begin
+					era := 'IdadeMedia';
+				end
+			else if (ano >= 1453) and (ano < 1789) then
+				begin
+					periodo := 'PeriodoHistorico';
+				end
+			else if (era >= 1453) and (era <1789) then
+				begin
+					era := 'IdadeModerna';
+				end
+			else if era >= 1789
+				begin
+					era := 'IdadeComtemporanea';
+				end
+			else if (ano >= 1789)
+				begin
+					periodo := 'PeriodoHistorico';
+				end;
+		 writeln('O perido informado foi : ',periodo);
+		 writeln('A era informada foi : ',era);
+		 readln;
+END.

@@ -1,0 +1,31 @@
+O restaurante a quilo Bem-Bão cobra R$12,00 por cada quilo de refeição.
+Escreva um algoritmo que leia o peso do prato montado pelo cliente 
+(em quilos) e imprima o valor a pagar. Assuma que a balança já desconte 
+o peso do prato.
+
+	peso refeição 0.459kg
+	valor do kg 12.00
+
+	valor a pgar = 0.459 * 12.00
+
+------------------------------------------------------------------
+programa Exercicio6;
+
+	var valPesoRefeição : real;
+	var valPorKg : real;
+	var totalPagar : real;
+
+INICIO
+
+	valPorKg <- 12.00 ;
+	
+	Escreve('Informe o peso da refeição:');
+	leia(valPesoRefeição);
+	
+	
+	totalPagar <- valPesoRefeição * valPorKg;
+	
+	
+	Escreve('Total a Pagar foi : ', totalPagar);
+
+FIM

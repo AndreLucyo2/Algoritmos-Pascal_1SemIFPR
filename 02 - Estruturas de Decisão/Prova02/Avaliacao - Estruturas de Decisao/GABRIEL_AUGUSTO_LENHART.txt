@@ -1,0 +1,129 @@
+program exerc_01;
+
+const
+  val1 = 65; //até 30 KWh
+  val2 = 40;//acima de 30 Kwh e até 100
+  val3 = 10;//acima de 100 Kwh e até 220 Kwh
+  val4 = 0;//acima de 220kwn
+var
+  valConsumo, valFatura : real;
+  
+begin
+  writeln('Informe o valor do consumo de energia: ');
+  read(valConsumo);
+if valConsumo >= 30 then
+  valFatura := valConsumo - 65/100;
+//  writeln(valFatura:0:2);
+if (valConsumo > 30) and (valConsumo <= 100) then
+  valFatura := valConsumo - 40/100;
+if (valConsumo > 100) and (valConsumo <= 220) then
+   valFatura := valConsumo - 10/100;
+if valConsumo > 220 then
+   valFatura := valConsumo - 0/100;
+writeln('Valor da fatura R$ ', valFatura:0:2);
+writeln('Valor da fatura com desconto R$ ', ValFatura:0:2); //tirar o desconto
+writeln('Valor de desconto: '); //porcentagem
+end.
+
+//---------------------------------------------------------------------
+
+program exerc_02;
+
+const
+//forma de pagamento p/ cliente c/ cadastro.
+forma1 = 20;
+forma2 = 15;
+forma3 = 10;
+forma4 = 5;
+//----------------------
+//forma de pagto /p cliente s/ cadastro.
+forma5 = 15;
+forma6 = 10;
+forma7 = 5;
+forma8 = 0;
+
+
+var
+  cliente, comcadastro, semcadastro, sim, nao : String;
+  valCompra, tipoPagamento :real;
+  valTotal, test:real;
+begin
+
+  writeln('Cliente possui cadastro: ');
+  read(cliente);
+
+  writeln('Informe o valor da compra: ');
+  read(valCompra);
+  
+  writeln('Tipo de pagamento: ');
+  read(tipoPagamento);
+  
+if cliente := comcadastro then
+  begin
+  if forma1 then
+  valCompra := valCompra - 20/100;
+  end;
+  
+  
+  
+  writeln('Valor total da compra R$ ', valCompra);
+  writeln('Valor da compra com desconto R$ ', valCompra);
+  writeln('')
+  
+end.
+
+//--------------------------------------------------------------------
+
+program exerc_03;
+var
+  nomealuno, situacao, recuperar: String;
+  nota1, nota2, nota3, nota4, numerofaltas, aulasminist, media, recuperacao :real;
+begin
+  writeln('Informe o nome do aluno: ');
+  read(nomealuno);
+    writeln('informe a nota 1: ');
+  read(nota1);
+    writeln('informe a nota 2: ');
+  read(nota2);
+    writeln('informe a nota 3: ');
+  read(nota3);
+    writeln('informe a nota 4: ');
+  read(nota4);
+  writeln('Numero de faltas: ');
+  read(numerofaltas);
+  writeln('Numero de aulas ministradas: ');
+  read(aulasminist);
+
+if numerofaltas <= 25 then
+   begin
+   situacao := 'reprovado por falta';
+   end;
+
+   begin
+if numerofaltas > 25 then
+   begin
+   media := nota1+nota2+nota3+nota4/4;
+if media < 40 then
+   situacao := 'reprovado por media';
+if (media >= 40) and (media <= 60) then
+   situacao := 'em recuperacao';
+   
+if media >= 60 then
+   situacao := 'Aprovado';
+   end;
+   
+   recuperacao := media - 10;
+writeln('O aluno ', nomealuno, ' está ', situacao);
+writeln('A media eh: ', media:0:0);
+
+{
+if recuperar := situacao then
+writeln('Precisa tirar a nota equvalente a ', recuperacao:0:0, ' para ser aprevado');
+else
+  writeln
+}
+writeln('De ', aulasminist:0:0, ' aulas, compareceu ', numerofaltas:0:0);
+
+
+end;
+end.

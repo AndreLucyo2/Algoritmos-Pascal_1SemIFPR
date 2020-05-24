@@ -1,0 +1,45 @@
+
+Suponha que seu plano de celular cobre uma taxa fixa para que
+você use utilize seu aparelho por 700 minutos por mês. Caso você
+ultrapasse esse limite, cobra-se uma taxa adicional de 35 centavos
+por minuto excedente. Sua conta de telefone mostra quantos
+minutos excedentes você usou a cada mês, mas não mostra quanto
+que você está pagando por esse excesso. Para ter essa informação,
+você faz contas da maneira antiga (com lápis e papel), mas gostaria
+de criar um algoritmo que simplifique a tarefa. A ideia é que você
+insira o número de minutos em excesso e o algoritmo execute esse
+cálculo.
+
+
+calculoFranquiaExercicio2
+
+	VarTaxaFix : real;
+	VarTempoContratado: real;
+	VarTempoDeUso: real;
+	VarTempoExcedido: real;
+	VarValor: real;
+	
+	VarTaxaFix <- 0,35;
+	VarTempoContratado <- 700;
+	
+Inicio
+	
+	leia tempo de uso:
+	VarTempoDeUso <- 750:
+	
+		
+	
+	se VarTempoDeUso > VarTempoContratado
+	
+		VarTempoExcedido <- (VarTempoDeUso - VarTempoContratado)
+	
+	    VarValor <- (VarTempoExcedido * VarTaxaFix)	
+		
+	leia 
+	
+	Escreve tempo Excedido : VarTempoExcedido
+	
+	Escreve Valor a pagar sobre o excesso: 
+
+	
+Fim

@@ -1,0 +1,63 @@
+Cansado de escrever algoritmos para saber tudo o que você
+precisa sobre o consumo do seu plano de celular, você contrata
+uma outra operadora. Contudo, a conta da nova operadora mostra
+apenas o valor da franquia, o total da fatura, o quanto se paga por
+cada minuto dentro da franquia e quanto se paga pelos minutos que
+excedem a franquia, mas não revela por quanto tempo você utilizou
+seu aparelho. Portanto, você não tem alternativa senão escrever
+um algoritmo novamente, que lhe permita determinar por quanto
+tempo você utilizou seu aparelho num determinado mês.
+
+ENTRADA
+
+PROCESSAMENTO
+
+SAIDA
+
+------------------------------------------------------------------
+	
+programa calculoFranquiaExercicio4
+
+	vFranquia : real;
+	vFatura : real;	
+	
+	vporMinuto: real;
+	totMinutoFranquia: inteiro;
+	
+	vporMinutoExc: real;
+	totMinutoExc: inteiro;
+	
+	totalMinutosConsumidos: inteiro;
+
+INICIO
+
+	Escreve('Informe o valor da franquia:');
+	leia(vFranquia); 700
+	
+	Escreve('Informe o valor da fatura');
+	leia(vFatura);  800
+	
+	Escreve('Informe o valor por minuto');
+	leia(vporMinuto); 0,10
+	
+	Escreve('Informe o valor por minuto excedido');
+	leia(vporMinutoExc); 0,35	
+	
+	
+	
+	 
+	totMinutoFranquia <- vFranquia/vporMinuto
+	700/0,10 
+	
+	totMinutoExc <- (vFatura -vFranquia)/vporMinutoExc
+	(800-700)/0,35
+	
+	totalMinutosConsumidos <- (totMinutoFranquia  + totMinutoExc)
+	
+	
+	
+	
+		
+	Escreve('o total de minutos consumidos foi :', totalMinutosConsumidos);
+
+FIM

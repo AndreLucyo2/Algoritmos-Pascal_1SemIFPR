@@ -1,0 +1,207 @@
+1.
+program tarifasocialdeenergia ;
+
+Var
+vlrKwh , qtdKwh , totalFatura : Real;
+
+Begin
+   writeln('Entre com a quantidade de KWh');
+   readln(qtdKwh);
+   writeln('Entre com o valor do KWh');
+   readln(vlrKwh);
+   totalFatura := qtdKwh*vlrKwh; 
+	  
+	if (qtdKwh < 30) Then
+		Begin
+		   writeln('O cliente tem direito a 65% de desconto e o total da fatura eh  ' , totalFatura :0:2 , ' R$' );
+	           readln;
+		end
+	else if (qtdKwh > 30) and (qtdKwh <= 100) Then
+		Begin
+	       	  writeln('O cliente tem direito a 40% de desconto e o total da fatura eh  ' , totalFatura :0:2 , ' R$' );
+		  readln;
+	        end
+	else if (qtdKwh > 101) and (qtdKwh <= 220) Then
+		Begin
+		  writeln('O cliente tem direito a 10% de desconto e o total da fatura eh  ' , totalFatura :0:2 , ' R$' );
+		  readln;
+	        End
+	else if (qtdKwh > 221) Then
+		Begin
+		  writeln('O cliente nao tem direito a desconto' , totalFatura :0:2 , ' R$' );
+		  readln;
+		End
+
+end.
+2.
+Program condicoesdepagamento ;
+ 
+A vista em dinheiro ou cheque = 1;
+A vista no cartao de credito  = 2;
+Parcelado em duas vezes       = 3;
+Parcelado em tres vezes       = 4;
+A vista em dinheiro ou cheque = 5;
+A vista no cartao de credito  = 6;
+Parcelado em duas vezes       = 7;
+Parcelado em tres vezes       = 8;
+Var
+tipoCliente , formaPagam : String ;
+vlrCompra : real ;
+
+Begin
+    writeln('Cliente cadastrado?');
+    readln(tipoCliente);
+    writeln('Informe a forma de pagamento');
+    readln(formaPagam);
+
+if (tipoCliente = 'sim') and (formaPagam = 1) Then
+  Begin
+		WriteLn('Cliente tem direito a 20% de desconto');
+  end
+else if (tipoCliente = 'sim') and (formaPagam = 2) Then
+  Begin
+		WriteLn('Cliente tem direito a 15% de desconto');
+  end
+else if (tipoCliente = 'sim') and (formaPagam = 3) Then
+		WriteLn('Cliente tem direito a 10% de desconto');
+  end
+else if (tipoCliente = 'sim') and (formaPagam = 4) Then
+  Begin
+		WriteLn('Cliente tem direito a 5% de desconto');
+  end
+else if (tipoCliente = 'nao') and (formaPagam = 5) Then
+  Begin
+		WriteLn('Cliente tem direito a 15% de desconto');
+  end
+else if (tipoCliente = 'nao') and (formaPagam = 6) Then
+  Begin
+		WriteLn('Cliente tem direito a 10% de desconto');
+  end
+else if (tipoCliente = 'nao') and (formaPagam = 7) Then
+  Begin
+		WriteLn('Cliente tem direito a 5% de desconto');
+  end
+	else if (tipoCliente = 'nao') and (formaPagam = 8) Then
+  Begin
+		WriteLn('Cliente tem direito a 0% de desconto');
+  end
+end.
+3.
+Program notasdeumaluno ;
+Var
+primeiroBi , segundoBi , terceiroBi , quartoBi , totMedia , totAulas , numFaltas , totFaltas : Real ;
+aprovadoPorNota , aprovadoPorFalta : Boolean ;
+
+Begin
+		writeln('Nota primeiro bimestre');
+		Readln(primeiroBi);
+		writeln('Nota segundo bimestre');
+		Readln(segundoBi);
+		writeln('Nota terceiro bimestre');
+		Readln(terceiroBi);
+		writeln('Nota quarto bimestre');
+		Readln(quartoBi);
+		writeln('Total de aulas');
+		readln(totAulas);
+		writeln('Total de faltas');
+		readln(numFaltas);
+		totMedia:=(primeiroBi+segundoBi+terceiroBi+quartoBi)/4;
+		totFaltas:=(totAulas-numFaltas)/100;
+
+    if (totMedia>=60) and (totMedia<=100) Then
+	Begin
+	   aprovadoPorNota:= True ;
+        End
+   Else if (totMedia>=10) and (totMedia<=59) Then
+	Begin
+	   aprovadoPorNota:= false ;
+        End;
+   if (totMedia>=40) and (totMedia<=60) Then
+	Begin
+	   aprovadoPorNota:= True ;
+        End
+   Else if (totMedia>=10) and (totMedia<=59) Then
+	Begin
+	   aprovadoPorNota:= false ;
+        End;
+   if (totFaltas<0.75) Then
+	Begin
+	   aprovadoPorFalta:= False ;
+	End
+   Else if (totFaltas>0.75) Then
+       Begin
+	   aprovadoPorFalta:= True;
+       End;
+
+   if (aprovadoPorNota = True) and (aprovadoPorFalta = True) then
+       Begin
+           writeln('O aluno foi aprovado por notas e aprovado por falta');
+	   readln;
+       end
+
+    else if (aprovadoPorNota = True) and (aprovadoPorFalta = False) then
+       Begin
+	   writeln('O aluno foi aprovado por notas e reprovado por falta');
+	   readln;
+       end
+
+    else if (aprovadoPorNota = false) and (aprovadoPorFalta = true) Then
+	Begin
+	   writeln('O aluno foi reprovado por notas mas aprovado por falta');
+	   readln;
+	end
+
+   else if (aprovadoPorNota = false) and (aprovadoPorFalta = false) Then
+       Begin
+	  writeln('O aluno foi reprovado por notas e reprovado por falta');
+	  readln;
+       end
+	
+end.
+4.
+program periodosdahistoria ;
+Var
+vlrAno : integer ;
+vlrEra : string  ;
+
+Begin
+		WriteLn('Informe o ano desejado');
+		readln(vlrAno);
+		writeln('Informe a era desejado');
+		readln(vlrEra);
+
+if (vlrAno >300000) or (vlrEra = 'AC') and (vlrAno <=4000) or (vlrEra = 'AC') Then
+	Begin
+			writeln('O periodo corresponde  a Pre-Historia ' );
+			readln;
+	End
+else if (vlrAno >4001) or (vlrEra = 'AC') and (vlrAno <=476) or (vlrEra = 'DC') Then
+	Begin
+			writeln('O periodo corresponde  a Idade Antiga ' );
+			readln;
+	End
+else if (vlrAno >476) or (vlrEra = 'DC') and (vlrAno <=1453) or (vlrEra = 'DC') Then
+	Begin
+			writeln('O periodo corresponde  a Idade Media ' );
+			readln;
+	End
+Else if (vlrAno >1453) or (vlrEra = 'DC') and (vlrAno <=1789) or (vlrEra = 'DC') Then
+	Begin
+			writeln('O periodo corresponde  a Idade Moderna ' );
+			readln;
+	End
+Else if (vlrAno >1789) or (vlrEra = 'DC') and (vlrAno <=2019) or (vlrEra = 'DC') Then
+	Begin
+			writeln('O periodo corresponde  a Idade Contemporanea ' );
+			readln;
+	End
+
+end.
+
+
+
+
+
+
+
+	

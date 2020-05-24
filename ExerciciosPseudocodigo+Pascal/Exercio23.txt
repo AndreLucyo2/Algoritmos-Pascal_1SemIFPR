@@ -1,0 +1,47 @@
+Num dia de sol, você deseja medir a altura de um prédio, porém, 
+a trena não é suficientemente longa. Assumindo que seja possível 
+medir sua sombra e a do prédio no chão, e que você lembre da sua altura, 
+faça um algoritmo para ler os dados necessários e calcular a altura 
+do prédio.
+
+
+ altura Pessoa h = 2m
+ sombra Pessoa s = 4m
+ 
+ altura do predio H = ?
+ sombra do predio S = 40m
+ 
+ Teorema de tales: 
+	 H = S
+	 h   s
+	 
+	 H*s = h*S
+	 
+	 H = h*S
+	      s
+ 
+------------------------------------------------------------------
+programa Exercicio23;
+	var alturaPessoa : real;
+	var alturaPredio : real;
+	
+	var sombraPessoa : real;
+	var sobraPredio : real;
+
+
+INICIAO
+
+	Escreva('Informe a medida de sua sombra :');
+	leia(sombraPessoa);	
+	
+	Escreva('Informe a medida da sombra do predio:');
+	leia(sobraPredio);	
+
+	alturaPredio <- (alturaPessoa*sobraPredio)/sombraPessoa;
+	
+	
+	Escreva('A altura do predio é de : ',alturaPredio,' com base nas sombras informada:',)
+
+
+
+FIM

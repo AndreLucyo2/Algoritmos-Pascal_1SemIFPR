@@ -1,0 +1,59 @@
+
+Como no caso anterior, suponha que seu plano de celular tenha uma
+franquia de 700 minutos, e que cobre uma taxa adicional de 35
+centavos por minuto excedente. Sua conta de telefone mostra o
+valor da franquia e o valor total a ser pago (que pode ser igual ou
+maior que a franquia), mas não quantos minutos excedentes você
+utilizou num mês. Crie um algoritmo que determine esses minutos
+excedentes.
+
+	Entrada
+	
+		700 minutos do plano : 
+		0,35 de taxa:
+		
+		Valor da franquia      : vFranquia
+		Valor total a ser pago : vFatura
+
+		
+	Processamento
+		
+		minutosExcentes = (vFatura - vFranquia)/ 0.35
+	
+	
+
+	Saida
+	
+		minutos excedentes : minutosExcentes
+
+
+------------------------------------------------------------------
+	
+
+	
+calculoFranquiaExercicio2
+
+	vTaxa : real;
+	vFranquia : real;
+	vFatura : real;	
+	minExdente: inteiro;
+	
+	
+	vTaxa <- 0,35;
+	vFranquia <- 700;
+	
+Inicio
+	
+	Escreve('Informe o valor da franquia');
+	leia(vFranquia);
+	
+	Escreve('Informe o valor da fatura');
+	leia(vFranquia);
+	
+	
+		minExdente <-(vFatura-vFranquia)/vTaxa;
+
+	
+	Escreve('Minutos excedidos: ', minExdente);
+	
+Fim

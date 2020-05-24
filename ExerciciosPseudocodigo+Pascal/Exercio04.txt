@@ -1,0 +1,38 @@
+Escreva um algoritmo para ler o nome e a idade de uma pessoa, 
+e exibir quantos dias de vida ela possui. Considere sempre anos 
+completos, e que um ano possui 365 dias. Ex: uma pessoa com 19 
+anos possui 6935 dias de vida; veja um exemplo de saída: MARIA, 
+VOCÊ JÁ VIVEU 6935 DIAS
+
+----------------------------------------------------------------
+programa Exercicio4;
+
+	var nome: string;
+	var idade:inteiro;	
+	var diasTotal:inteiro;
+	var ano: inteiro;
+
+
+INICIO
+
+	ano <- 365;
+
+	Escreve('Informe o nome');
+	leia(nome); 
+	
+	Escreve('Informe a idade');
+	leia(idade);
+	
+	
+
+	diasTotal <- idade* ano;
+	
+	
+
+	Escreva(nome, 'com ', idade, ' de idade, viveu ', diasTotal,'dias');
+	
+	
+	//Andre com 10 de idade, viveu 3650 dias
+
+
+FIM

@@ -1,0 +1,49 @@
+Pedrinho tem um cofrinho com muitas moedas, e deseja saber quantos reais 
+conseguiu poupar. Faça um algoritmo para ler a quantidade de cada tipo 
+de moeda, e imprimir o valor total economizado, em reais. Considere que 
+existam moedas de 1, 5, 10, 25 e 50 centavos, e ainda moedas de 1 real. 
+Não havendo moeda de um tipo, a quantidade respectiva é zero.
+
+------------------------------------------------------------------
+programa Exercicio13;
+
+	var dtqMoedas1cent : Inteiro;
+	var dtqMoedas5cent : Inteiro;
+	var dtqMoedas10cent : Inteiro;
+	var dtqMoedas25cent : Inteiro;
+	var dtqMoedas50cent : Inteiro;
+	var dtqMoedas1Rel : Inteiro;
+	var valTotal : Inteiro;	
+
+	
+INICIO
+
+	Escreve('Informe um numero moedas de 1 centavo ou 0 para nenhuma:');
+	leia(dtqMoedas1cent);
+	
+	Escreve('Informe um numero moedas de 5 centavos ou 0 para nenhuma:');
+	leia(dtqMoedas5cent);
+	
+	Escreve('Informe um numero moedas de 10 centavo ou 0 para nenhuma:');
+	leia(dtqMoedas10cent);
+	
+	Escreve('Informe um numero moedas de 25 centavo ou 0 para nenhuma:');
+	leia(dtqMoedas25cent);
+	
+	Escreve('Informe um numero moedas de 50 centavo ou 0 para nenhuma:');
+	leia(dtqMoedas50cent);
+	
+	Escreve('Informe um numero moedas de 1 real ou 0 para nenhuma:');
+	leia(dtqMoedas1Rel);
+	
+	
+	
+	valTotal <- (dtqMoedas1cent * 0.01) + (dtqMoedas5cent * 0.05) + (dtqMoedas10cent * 0.10) + (dtqMoedas25cent * 0.25) + (dtqMoedas50cent * 0.50) + dtqMoedas1Real;
+	
+	
+	
+    Escreve('O valor total arrecadado foi de: R$',valTotal , 'reais');
+
+	
+	
+FIM

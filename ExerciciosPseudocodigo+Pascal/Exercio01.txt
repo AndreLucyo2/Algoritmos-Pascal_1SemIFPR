@@ -1,0 +1,26 @@
+A imobiliária Imóbilis vende apenas terrenos retangulares. 
+Faça um algoritmo para ler as dimensões de um terreno e 
+depois exibir a área do terreno.
+
+------------------------------------------------------------
+programa calculoAreaQuadrado;
+
+	var largura: inteiro;
+	var altura : inteiro;
+	var area : real;
+	
+	
+INICIO
+	
+	Escreve('Digite a largura:');
+	leia(largura);
+	
+	Escreve('Digite a altura:');
+	leia(altura);
+		
+	area <- largura * altura	
+	
+	Escreve('A area calcula é :', area);
+
+
+FIM

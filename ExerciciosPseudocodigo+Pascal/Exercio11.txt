@@ -1,0 +1,28 @@
+Uma fábrica controla o tempo de trabalho sem acidentes pela quantidade 
+de dias. Faça um algoritmo para converter este tempo em anos, meses e dias.
+Assuma que cada mês possui sempre 30 dias.
+
+	estamos a 2654 dias sem acidente
+	meses = 2654/30
+	ano = meses/12
+
+------------------------------------------------------------------
+programa Exercicio11;
+
+	var dias : real;
+	var meses : real;     
+	var ano : real;
+	
+
+INICIO
+
+	Escreve('Informe o numero de dias sem acidente:');
+	leia(dias);
+	
+	meses <- dias/30;
+		
+	ano <- meses/12;
+
+	Escreve('Estamos a ',dias, ' sem acidentes, representa ',meses,' meses, e ', ano,' anos');
+	
+FIM
